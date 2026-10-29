@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>agcomstore - GitJoki — Jasa Editing, Website, Template Guru</title>
+
+<style>
+  :root {
+    --yellow: #ffc800;
+    --yellow-soft: #ffe27a;
+    --yellow-pale: #fff6d1;
+    --ink: #1a1608;
+    --ink-soft: #5a5440;
+    --line: #e6d58a;
+    --white: #ffffff;
+    --green: #2f9e44;
+    --red: #c92a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
+
+  .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--white); border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 76px;
+  }
+
+  .brand { display: flex; align-items: center; gap: 11px; }
+
+  .brand-mark {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: var(--yellow); position: relative; flex: none;
+  }
+
+  .brand-mark::before {
+    content: ""; position: absolute; inset: 9px 10px;
+    border: 2.5px solid var(--ink); border-bottom: none;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .brand-mark::after {
+    content: ""; position: absolute; left: 50%; bottom: 9px;
+    transform: translateX(-50%); width: 6px; height: 10px;
+    background: var(--ink); border-radius: 1px 1px 0 0;
+  }
+
+  .brand-name {
+    font-size: 17px; font-weight: 800;
+    letter-spacing: -0.3px; color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .brand-name small {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2px; color: var(--ink-soft);
+    display: block; margin-top: -2px;
+  }
+
+  nav ul { display: flex; gap: 30px; font-size: 14.5px; font-weight: 500; }
+  nav a {
+    color: var(--ink-soft); padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  nav a:hover { color: var(--ink); border-color: var(--yellow); }
+
+  .nav-cta {
+    background: var(--yellow); color: var(--ink);
+    font-size: 14px; font-weight: 700;
+    padding: 11px 22px; border-radius: 7px;
+  }
+  .nav-cta:hover { background: var(--yellow-soft); }
+
+  .burger { display: none; }
+
+  .hero { background: var(--yellow); padding: 80px 0; }
+
+  .hero-inner {
+    display: grid; grid-template-columns: 1.05fr 0.95fr;
+    gap: 64px; align-items: center;
+  }
+
+  .hero-text .eyebrow {
+    display: inline-block;
+    background: rgba(26, 22, 8, 0.08);
+    border: 1px solid rgba(26, 22, 8, 0.12);
+    padding: 7px 12px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 800; letter-spacing: 0.4px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.05; letter-spacing: -2px; margin: 18px 0;
+  }
+
+  .hero-text p { font-size: 18px; max-width: 560px; color: var(--ink); }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+  .eco-slogan {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: var(--yellow);
+    padding: 10px 16px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 800;
+    letter-spacing: 0.2px; margin-top: 26px;
+    max-width: 100%; line-height: 1.4;
+  }
+
+  .eco-slogan .eco-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #57d163;
+    box-shadow: 0 0 0 3px rgba(87, 209, 99, 0.28);
+    flex: none;
+  }
+
+  .eco-slogan strong { color: #57d163; font-weight: 900; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 20px; border-radius: 8px;
+    font-weight: 800; font-size: 14.5px; transition: 0.18s ease;
+  }
+
+  .btn-dark { background: var(--ink); color: var(--yellow); }
+  .btn-dark:hover { background: #2b2510; }
+  .btn-dark:disabled, .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .btn-light {
+    background: var(--white); color: var(--ink);
+    border: 1px solid rgba(26, 22, 8, 0.12);
+  }
+  .btn-light:hover { background: var(--yellow-pale); }
+
+  .btn-wa { background: #25d366; color: #fff; }
+  .btn-wa:hover { background: #1ebe5b; }
+
+  .hero-card {
+    background: var(--white); border-radius: 16px; padding: 28px;
+    box-shadow: 0 22px 50px rgba(26, 22, 8, 0.16);
+    border: 1px solid rgba(26, 22, 8, 0.08);
+  }
+
+  .hero-card .badge { margin-bottom: 14px; }
+  .hero-card h3 { font-size: 21px; line-height: 1.25; margin-bottom: 8px; }
+  .hero-card p { font-size: 14px; color: var(--ink-soft); }
+
+  .price-big {
+    font-size: 38px; font-weight: 900;
+    letter-spacing: -1.5px; line-height: 1; margin: 18px 0 4px;
+  }
+
+  .hero-card ul { margin-top: 18px; display: grid; gap: 9px; font-size: 14px; }
+  .hero-card li {
+    display: flex; gap: 9px; align-items: flex-start; color: var(--ink-soft);
+  }
+  .hero-card li::before {
+    content: "-"; color: var(--ink); font-weight: 900; flex: none;
+  }
+
+  .hero-card .eco-mini {
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 12px; color: var(--ink-soft); line-height: 1.5;
+  }
+
+  .hero-card .eco-mini strong { color: var(--ink); font-weight: 800; }
+
+  section.block { padding: 84px 0; }
+  .section-head { margin-bottom: 46px; }
+
+  .section-head h2 {
+    font-size: clamp(28px, 3.5vw, 38px);
+    line-height: 1.15; letter-spacing: -1px; margin-bottom: 10px;
+  }
+
+  .section-head p { color: var(--ink-soft); max-width: 680px; font-size: 15.5px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
+  .box {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 11px; min-height: 180px; padding: 24px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .box h3 { font-size: 17px; line-height: 1.3; letter-spacing: -0.2px; }
+  .box p { font-size: 13.5px; color: var(--ink-soft); }
+
+  .badge {
+    display: inline-block; width: fit-content;
+    background: var(--yellow-pale); color: var(--ink);
+    border: 1px solid var(--line);
+    padding: 5px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 800;
+  }
+
+  .price {
+    font-size: 18px; font-weight: 900;
+    letter-spacing: -0.4px;
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-height: 24px;
+  }
+
+  .price .price-old {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  .price .price-new {
+    color: var(--green);
+    font-weight: 900;
+    font-size: 18px;
+  }
+
+  .price .price-badge-prem {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-size: 9.5px;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+  }
+  .services-grid .box { min-height: 170px; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+  .step {
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px; background: var(--white);
+    display: flex; flex-direction: column;
+  }
+
+  .step-num {
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%; background: var(--yellow);
+    font-weight: 900; margin-bottom: 14px;
+  }
+
+  .step h3 { font-size: 16px; margin-bottom: 6px; }
+  .step p { font-size: 13.5px; color: var(--ink-soft); }
+  .step .btn { margin-top: 14px; align-self: flex-start; padding: 9px 14px; font-size: 12.5px; }
+
+  .cta { background: var(--yellow); padding: 64px 0; }
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 26px; flex-wrap: wrap;
+  }
+  .cta h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.1; letter-spacing: -1.2px; margin-bottom: 8px;
+  }
+  .cta p { max-width: 620px; font-size: 15.5px; }
+  .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  footer {
+    background: var(--ink); color: var(--yellow-pale);
+    padding: 56px 0 0; font-size: 13.5px;
+  }
+
+  .foot-grid {
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 44px; padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255, 200, 0, 0.16);
+  }
+
+  footer .brand-name { color: var(--white); }
+  footer .brand-name small { color: #8a8060; }
+
+  footer h4 {
+    color: var(--yellow); font-size: 12.5px;
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px;
+  }
+
+  .foot-list li { margin-bottom: 8px; color: #8a8060; }
+  .foot-list a:hover { color: var(--yellow); }
+  .foot-desc { color: #8a8060; margin-top: 14px; max-width: 320px; }
+
+  .foot-eco {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(87, 209, 99, 0.12);
+    border: 1px solid rgba(87, 209, 99, 0.35);
+    color: #b8e6bb;
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 11.5px; font-weight: 700;
+    line-height: 1.4; margin-top: 14px; max-width: 100%;
+  }
+
+  .foot-eco .eco-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #57d163; flex: none;
+  }
+
+  .foot-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 0; font-size: 12.5px; color: #8a8060;
+    flex-wrap: wrap; gap: 10px;
+  }
+
+  .foot-bottom a { color: #8a8060; text-decoration: underline; font-size: 11px; }
+  .foot-bottom a:hover { color: var(--yellow); }
+
+  .premium-section {
+    background: linear-gradient(180deg, #fffdf3 0%, #ffffff 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .premium-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 22px; max-width: 860px; margin: 0 auto;
+  }
+
+  .premium-card {
+    border: 2px solid var(--line); border-radius: 16px;
+    padding: 28px 24px 24px; background: var(--white);
+    display: flex; flex-direction: column; gap: 14px;
+    position: relative; transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .premium-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(26, 22, 8, 0.1);
+  }
+
+  .premium-card--super {
+    border-color: var(--yellow);
+    background: linear-gradient(180deg, #fff9e0 0%, #ffffff 100%);
+  }
+
+  .premium-badge-top {
+    position: absolute; top: -13px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink); color: var(--yellow);
+    padding: 5px 16px; border-radius: 999px;
+    font-size: 10.5px; font-weight: 900;
+    letter-spacing: 0.8px; white-space: nowrap;
+  }
+
+  .premium-card h3 { font-size: 24px; letter-spacing: -0.6px; margin: 6px 0 2px; }
+
+  .premium-price {
+    font-size: 30px; font-weight: 900;
+    letter-spacing: -1px; line-height: 1.1;
+  }
+
+  .premium-price small {
+    font-size: 13px; font-weight: 600;
+    color: var(--ink-soft); letter-spacing: 0;
+  }
+
+  .premium-card ul {
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 13.5px; color: var(--ink-soft); margin: 6px 0;
+  }
+
+  .premium-card li { display: flex; gap: 8px; align-items: flex-start; }
+  .premium-card li::before {
+    content: "-"; color: var(--green); font-weight: 900; flex: none;
+  }
+
+  .premium-card .btn { margin-top: auto; }
+
+  .premium-status {
+    max-width: 860px; margin: 30px auto 0;
+    background: linear-gradient(135deg, var(--ink) 0%, #3a2f10 100%);
+    color: var(--yellow); border-radius: 14px;
+    padding: 22px 24px;
+    display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+
+  .premium-status .btn { padding: 9px 16px; font-size: 12.5px; }
+
+  .premium-status-info {
+    font-size: 17px; font-weight: 900;
+    letter-spacing: -0.3px; margin-bottom: 4px;
+  }
+
+  .premium-status-meta {
+    font-size: 13px; opacity: 0.92; line-height: 1.5;
+  }
+
+  .premium-status-meta strong { color: #fff; font-weight: 800; }
+
+  .premium-modal {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(26, 22, 8, 0.55);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; opacity: 0; transition: opacity 0.25s ease;
+  }
+  .premium-modal.show { display: flex; opacity: 1; }
+
+  .premium-modal-content {
+    background: var(--white); border-radius: 18px;
+    max-width: 460px; width: 100%;
+    max-height: 92vh; overflow: auto;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9); opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  }
+  .premium-modal.show .premium-modal-content {
+    transform: scale(1); opacity: 1;
+  }
+
+  .premium-modal-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+  }
+  .premium-modal-head h3 { font-size: 17px; }
+
+  .premium-modal-body {
+    padding: 20px; display: flex; flex-direction: column; gap: 14px;
+  }
+
+  .premium-plan-info {
+    background: var(--yellow-pale); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  .premium-plan-info strong { font-size: 18px; letter-spacing: -0.3px; }
+
+  .premium-plan-info .plan-price {
+    font-size: 22px; font-weight: 900;
+    letter-spacing: -0.6px; color: var(--ink);
+  }
+
+  .premium-plan-info .plan-meta {
+    font-size: 12.5px; color: var(--ink-soft);
+  }
+
+  .premium-step-block {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .premium-step-label {
+    font-size: 12px; font-weight: 900;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    color: var(--ink); background: var(--yellow-pale);
+    border: 1px solid var(--line);
+    padding: 8px 12px; border-radius: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .premium-step-label .step-num-badge {
+    width: 20px; height: 20px;
+    border-radius: 50%; background: var(--yellow);
+    color: var(--ink); display: inline-flex;
+    align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 900; flex: none;
+  }
+
+  #premiumStepCode input {
+    width: 100%; padding: 11px 12px;
+    border: 1px solid var(--line); border-radius: 8px;
+    font: inherit; background: #fff;
+  }
+
+  #premiumStepCode small {
+    font-size: 11.5px; color: var(--ink-soft); line-height: 1.4;
+  }
+
+  .add-btn {
+    margin-top: 12px; width: 100%;
+    background: var(--yellow); color: var(--ink);
+    font-weight: 800; font-size: 13.5px;
+    padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--line); transition: 0.18s;
+  }
+  .add-btn:hover { background: var(--yellow-soft); }
+
+  .cart-fab {
+    position: fixed; right: 20px; bottom: 20px; z-index: 60;
+    background: var(--ink); color: var(--yellow);
+    border-radius: 999px; padding: 14px 18px;
+    font-weight: 800; display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .cart-fab #cartCount {
+    background: var(--yellow); color: var(--ink);
+    border-radius: 999px; min-width: 22px; height: 22px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+
+  .cart-overlay {
+    position: fixed; inset: 0;
+    background: rgba(26, 22, 8, 0.45); z-index: 70;
+    opacity: 0; pointer-events: none; transition: 0.2s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .cart-panel {
+    position: fixed; top: 0; right: 0; z-index: 80;
+    width: min(440px, 100%); height: 100%;
+    background: var(--white); transform: translateX(100%);
+    transition: transform 0.25s ease;
+    display: flex; flex-direction: column;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+  }
+  .cart-panel.open { transform: translateX(0); }
+
+  .cart-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 20px; border-bottom: 1px solid var(--line); flex: none;
+  }
+  .cart-head h3 { font-size: 18px; }
+  .cart-close { font-size: 26px; line-height: 1; color: var(--ink-soft); }
+
+  .cart-items {
+    padding: 16px 20px; overflow: auto; flex: 1;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .cart-empty { color: var(--ink-soft); font-size: 14px; }
+
+  .cart-item {
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px; display: flex; justify-content: space-between;
+    gap: 12px; align-items: center;
+  }
+
+  .cart-item-info { display: flex; flex-direction: column; font-size: 13.5px; }
+  .cart-item-info strong { font-size: 13.5px; }
+  .cart-item-info .cart-price-old {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+    font-size: 11px; margin-right: 4px; opacity: 0.7;
+  }
+  .cart-item-info .cart-price-new {
+    color: var(--green); font-weight: 800; font-size: 12.5px;
+  }
+  .cart-item-info > span { color: var(--ink-soft); font-size: 12.5px; }
+
+  .cart-item-actions { display: flex; align-items: center; gap: 6px; flex: none; }
+
+  .qty-btn {
+    width: 28px; height: 28px; border-radius: 7px;
+    border: 1px solid var(--line); background: var(--yellow-pale);
+    font-weight: 900;
+  }
+
+  .qty { min-width: 22px; text-align: center; font-weight: 800; font-size: 13px; }
+  .remove-btn { font-size: 11.5px; color: #b3261e; margin-left: 4px; }
+
+  .cart-summary {
+    border-top: 1px solid var(--line);
+    padding: 16px 20px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    background: var(--yellow-pale); flex: none;
+    max-height: 72vh; overflow: auto;
+  }
+
+  .cart-total-row { display: flex; justify-content: space-between; font-size: 15px; }
+
+  .cart-total-row.cart-discount-row {
+    color: var(--green); font-weight: 800; font-size: 13.5px;
+    background: rgba(47, 158, 68, 0.08);
+    padding: 6px 8px; border-radius: 6px; margin: 2px 0;
+  }
+
+  .cart-total-row.cart-total-final {
+    border-top: 1px dashed var(--line);
+    padding-top: 10px; margin-top: 4px; font-size: 16px;
+  }
+
+  .cart-summary label { font-size: 12.5px; font-weight: 800; }
+
+  .cart-summary input {
+    width: 100%; padding: 11px 12px;
+    border: 1px solid var(--line); border-radius: 8px;
+    font: inherit; background: #fff;
+  }
+
+  .cart-summary small { font-size: 11.5px; color: var(--ink-soft); line-height: 1.4; }
+
+  .used-codes-info {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: var(--ink-soft);
+    padding-top: 8px; border-top: 1px solid var(--line);
+  }
+
+  .storage-warning {
+    display: none; background: #c92a2a; color: #fff;
+    padding: 10px 12px; border-radius: 8px;
+    font-size: 11.5px; line-height: 1.4; margin-top: 6px;
+  }
+
+  .storage-warning.show { display: block; }
+
+  .scan-step {
+    display: none; flex-direction: column; gap: 10px;
+    margin-top: 6px; padding-top: 14px;
+    border-top: 1px dashed var(--line);
+  }
+  .scan-step.show { display: flex; }
+
+  .scan-title { font-size: 13px; font-weight: 800; color: var(--green); }
+
+  .pay-tabs {
+    display: flex; gap: 6px;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 9px; padding: 4px;
+  }
+
+  .pay-tab {
+    flex: 1; padding: 8px 6px; border-radius: 6px;
+    font-size: 12px; font-weight: 800; color: var(--ink-soft);
+    transition: 0.15s;
+  }
+  .pay-tab.active { background: var(--yellow); color: var(--ink); }
+
+  .pay-content {
+    display: none;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px;
+    flex-direction: column; gap: 10px;
+  }
+  .pay-content.active { display: flex; }
+
+  .scan-img {
+    width: 100%; max-height: 220px; object-fit: contain;
+    border-radius: 8px; background: #fff;
+  }
+
+  .pay-hint { font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  .account-box {
+    display: flex; flex-direction: column; gap: 4px;
+    background: var(--yellow-pale); border: 1px solid var(--line);
+    border-radius: 9px; padding: 12px 14px;
+  }
+
+  .account-label { font-size: 11.5px; font-weight: 800; color: var(--ink-soft); }
+
+  .account-number {
+    font-size: 17px; font-weight: 900;
+    letter-spacing: 0.5px; color: var(--ink);
+    word-break: break-all;
+  }
+
+  .copy-btn {
+    align-self: flex-start; margin-top: 4px;
+    background: var(--ink); color: var(--yellow);
+    padding: 6px 12px; border-radius: 6px;
+    font-size: 11.5px; font-weight: 800;
+  }
+
+  .cart-summary .btn,
+  .premium-modal-body .btn { width: 100%; }
+
+  .success-modal {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(26, 22, 8, 0.55);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; opacity: 0; transition: opacity 0.25s ease;
+  }
+  .success-modal.show { display: flex; opacity: 1; }
+
+  .success-content {
+    background: var(--white); border-radius: 18px;
+    padding: 32px 28px; max-width: 380px; width: 100%;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    transform: scale(0.85); opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  }
+  .success-modal.show .success-content { transform: scale(1); opacity: 1; }
+
+  .checkmark {
+    width: 84px; height: 84px; margin: 0 auto 18px;
+    border-radius: 50%; display: block;
+  }
+
+  .checkmark-circle {
+    stroke-dasharray: 166; stroke-dashoffset: 166;
+    stroke-width: 2.5; stroke: var(--green); fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+
+  .checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48; stroke-dashoffset: 48;
+    stroke-width: 3.5; stroke: var(--green); fill: none;
+    stroke-linecap: round;
+    animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.7s forwards;
+  }
+
+  @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+
+  .success-content h2 { font-size: 22px; margin-bottom: 6px; letter-spacing: -0.4px; }
+  .success-content p { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 22px; }
+  .success-content .btn { width: 100%; }
+
+  .closed-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: linear-gradient(135deg, #1a1608 0%, #3a2f10 100%);
+    color: var(--yellow);
+    display: none; align-items: center; justify-content: center;
+    padding: 24px; text-align: center; overflow-y: auto;
+  }
+
+  .closed-overlay.show { display: flex; }
+
+  .closed-content {
+    max-width: 460px; width: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 14px;
+  }
+
+  .closed-mark {
+    width: 72px; height: 72px; border-radius: 16px;
+    background: rgba(255, 200, 0, 0.12);
+    border: 2px solid rgba(255, 200, 0, 0.4);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 900; color: var(--yellow);
+    margin-bottom: 6px; position: relative;
+  }
+
+  .closed-mark::before {
+    content: ""; position: absolute; inset: 8px;
+    border: 2px solid var(--yellow);
+    border-radius: 8px; opacity: 0.35;
+  }
+
+  .closed-badge {
+    display: inline-block;
+    background: rgba(201, 42, 42, 0.18);
+    border: 1px solid rgba(201, 42, 42, 0.55);
+    color: #ff8080; padding: 6px 14px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  .closed-title {
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 900; letter-spacing: -1.2px;
+    line-height: 1.05; color: var(--yellow); margin: 4px 0;
+  }
+
+  .closed-desc {
+    font-size: 14px; color: rgba(255, 200, 0, 0.78);
+    max-width: 380px; line-height: 1.55; margin-bottom: 6px;
+  }
+
+  .closed-hours {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255, 200, 0, 0.08);
+    border: 1px solid rgba(255, 200, 0, 0.28);
+    border-radius: 12px; padding: 12px 18px;
+    font-size: 13px; font-weight: 700;
+    color: var(--yellow); margin-bottom: 6px;
+  }
+
+  .closed-hours-label {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    color: rgba(255, 200, 0, 0.6); display: block; text-align: center;
+  }
+
+  .closed-hours-value {
+    font-size: 17px; font-weight: 900;
+    letter-spacing: 0.4px; color: var(--yellow);
+    display: block; text-align: center;
+  }
+
+  .countdown-title {
+    font-size: 11.5px; font-weight: 800;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    color: rgba(255, 200, 0, 0.55); margin-top: 12px;
+  }
+
+  .countdown {
+    display: flex; gap: 8px; justify-content: center; margin-top: 8px;
+  }
+
+  .countdown-cell {
+    background: rgba(255, 200, 0, 0.1);
+    border: 1px solid rgba(255, 200, 0, 0.3);
+    border-radius: 10px; padding: 10px 4px;
+    min-width: 62px; text-align: center;
+  }
+
+  .countdown-num {
+    font-size: 26px; font-weight: 900;
+    letter-spacing: -0.5px; color: var(--yellow);
+    line-height: 1; font-variant-numeric: tabular-nums;
+  }
+
+  .countdown-unit {
+    font-size: 9.5px; font-weight: 800;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    color: rgba(255, 200, 0, 0.55); margin-top: 4px;
+  }
+
+  .closed-footer {
+    margin-top: 14px; font-size: 11px;
+    color: rgba(255, 200, 0, 0.4); letter-spacing: 0.2px;
+  }
+
+  @media (max-width: 640px) {
+    .countdown-cell { min-width: 54px; padding: 8px 3px; }
+    .countdown-num { font-size: 22px; }
+    .closed-mark { width: 60px; height: 60px; font-size: 26px; }
+  }
+
+  @media (max-width: 1000px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 46px; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
+    .premium-grid { grid-template-columns: 1fr; max-width: 460px; }
+    nav ul { display: none; }
+    .nav-cta { display: none; }
+
+    .burger {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 8px;
+    }
+    .burger span {
+      width: 22px; height: 2px;
+      background: var(--ink); border-radius: 2px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    section.block { padding: 58px 0; }
+    .hero { padding: 60px 0; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .cart-fab { right: 14px; bottom: 14px; }
+    .brand-name { font-size: 15px; }
+    .eco-slogan { font-size: 11.5px; padding: 9px 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="closedOverlay" class="closed-overlay" aria-hidden="true">
+  <div class="closed-content">
+    <div class="closed-mark">Zz</div>
+    <span class="closed-badge">Toko Tutup</span>
+    <h1 class="closed-title">Kami Sedang Istirahat</h1>
+    <p class="closed-desc">
+      agcomstore - GitJoki tutup sementara setiap pukul <strong>00:00</strong> hingga <strong>06:00</strong>.
+      Silakan kembali lagi saat toko buka.
+    </p>
+    <div class="closed-hours">
+      <div>
+        <span class="closed-hours-label">Jam Operasional</span>
+        <span class="closed-hours-value">06:00 - 00:00</span>
+      </div>
+    </div>
+    <div class="countdown-title">Buka dalam</div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-cell">
+        <div class="countdown-num" id="cdHours">00</div>
+        <div class="countdown-unit">Jam</div>
+      </div>
+      <div class="countdown-cell">
+        <div class="countdown-num" id="cdMinutes">00</div>
+        <div class="countdown-unit">Menit</div>
+      </div>
+      <div class="countdown-cell">
+        <div class="countdown-num" id="cdSeconds">00</div>
+        <div class="countdown-unit">Detik</div>
+      </div>
+    </div>
+    <div class="closed-footer">&copy; 2026 agcomstore - GitJoki</div>
+  </div>
+</div>
+
+<div id="mainContent">
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <div class="brand-mark"></div>
+      <span class="brand-name">
+        agcomstore
+        <small>GitJoki</small>
+      </span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#section-1">Layanan</a></li>
+        <li><a href="#section-2">Harga</a></li>
+        <li><a href="#section-premium">Premium</a></li>
+        <li><a href="#section-3">Cara Order</a></li>
+        <li><a href="#section-4">Kontak</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/6285731569186" target="_blank" rel="noopener" class="nav-cta">Chat Admin</a>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Jasa Digital Terjangkau</span>
+      <h1>Editing, Website, Template Guru — semua bisa di-Joki!</h1>
+      <p>
+        <strong>agcomstore - GitJoki</strong> melayani kebutuhan digital ringan untuk sekolah, mahasiswa,
+        guru, dan pelaku usaha. Harga mulai dari <strong>Rp5.000</strong>,
+        proses cepat, dan bisa langsung konsultasi ke admin.
+      </p>
+      <div class="eco-slogan">
+        <span class="eco-dot"></span>
+        <span class="eco-text">
+          Pembuatan <strong>tanpa AI</strong> — ikut menjaga ekosistem lingkungan dengan tidak menggunakan AI.
+        </span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/6285731569186" target="_blank" rel="noopener" class="btn btn-dark">Chat Admin (Online)</a>
+        <a href="#section-premium" class="btn btn-light">Lihat Premium</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-card">
+        <span class="badge">Admin Online Sekarang</span>
+        <h3>Butuh joki tugas digital?</h3>
+        <p>Pilih layanan, hubungi admin untuk kode pembayaran, lalu bayar via DANA / Seabank / ShopeePay.</p>
+        <div class="price-big">Rp5.000</div>
+        <p>Harga mulai dari — Print &amp; Scan / Convert File</p>
+        <ul>
+          <li>Editing Canva, gambar, dan video</li>
+          <li>Build website, landing page, portofolio</li>
+          <li>Template guru, PPT, modul pembelajaran</li>
+          <li>Admin: 0857-3156-9186</li>
+        </ul>
+        <div class="eco-mini">
+          <strong>Pembuatan tanpa AI.</strong> Setiap karya dikerjakan manual oleh tim kami — membantu mengurangi beban ekosistem lingkungan dari penggunaan AI.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="section-1">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Layanan Utama agcomstore - GitJoki</h2>
+      <p>Beberapa kategori layanan yang paling sering dipesan. Semua bisa dikonsultasikan dulu ke admin sebelum order.</p>
+    </div>
+    <div class="grid-3">
+      <div class="box">
+        <span class="badge">Editing &amp; Desain</span>
+        <h3>Editing Canva, Gambar &amp; Video</h3>
+        <p>Tugas sekolah, iklan, poster, video reels, dan konten YouTube.</p>
+        <div class="price">Mulai Rp15.000</div>
+      </div>
+      <div class="box">
+        <span class="badge">Website &amp; Template</span>
+        <h3>Build Website &amp; Template Guru</h3>
+        <p>Website simple, landing page, portofolio, materi ajar, PPT, dan modul pembelajaran.</p>
+        <div class="price">Mulai Rp20.000</div>
+      </div>
+      <div class="box">
+        <span class="badge">Administrasi</span>
+        <h3>Ketik, Print, Scan &amp; Convert File</h3>
+        <p>Ketik ulang dari foto/gambar, print dokumen, scan berkas, dan convert Word/PDF/Excel/PPT.</p>
+        <div class="price">Mulai Rp5.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="section-2">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Daftar Layanan &amp; Harga</h2>
+      <p>Harga transparan. Klik <strong>+ Keranjang</strong> untuk menambahkan layanan. Harga otomatis terpotong diskon premium saat aktif.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="box">
+        <span class="badge">Canva</span>
+        <h3>Jasa Editing Canva</h3>
+        <p>Tugas sekolah, iklan, poster, dll.</p>
+        <div class="price" data-base-price="15000">Rp15.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Multimedia</span>
+        <h3>Editing Gambar / Video</h3>
+        <p>Editing foto, video reels, YouTube.</p>
+        <div class="price" data-base-price="25000">Rp25.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Presentasi</span>
+        <h3>Jasa Presentasi PPT</h3>
+        <p>PPT rapi &amp; menarik untuk tugas.</p>
+        <div class="price" data-base-price="30000">Rp30.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Website</span>
+        <h3>Jasa Build Website</h3>
+        <p>Website simple, landing page, portofolio.</p>
+        <div class="price" data-base-price="150000">Rp150.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Guru</span>
+        <h3>Template Guru</h3>
+        <p>Materi ajar, PPT, modul pembelajaran.</p>
+        <div class="price" data-base-price="20000">Rp20.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Dokumen</span>
+        <h3>Jasa Ketik Ulang</h3>
+        <p>Ketik dari foto/gambar ke Word / PDF.</p>
+        <div class="price" data-base-price="10000">Rp10.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Print</span>
+        <h3>Jasa Print &amp; Scan</h3>
+        <p>Print dokumen, scan berkas penting.</p>
+        <div class="price" data-base-price="5000">Rp5.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Akun</span>
+        <h3>Jasa Daftar Akun</h3>
+        <p>Bikin akun sosmed, email, dll.</p>
+        <div class="price" data-base-price="15000">Rp15.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">CV</span>
+        <h3>Jasa Edit CV / Resume</h3>
+        <p>CV menarik siap kirim ke HRD.</p>
+        <div class="price" data-base-price="20000">Rp20.000</div>
+      </div>
+
+      <div class="box">
+        <span class="badge">Convert</span>
+        <h3>Jasa Convert File</h3>
+        <p>Word ↔ PDF, Excel, PPT, dll.</p>
+        <div class="price" data-base-price="5000">Rp5.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block premium-section" id="section-premium">
+  <div class="wrap">
+    <div class="section-head" style="text-align: center; max-width: 680px; margin-left: auto; margin-right: auto;">
+      <h2>Premium agcomstore - GitJoki</h2>
+      <p>Berlangganan premium dan dapatkan diskon otomatis di setiap layanan selama masa aktif. Harga di website langsung tercoret &amp; terpotong.</p>
+    </div>
+
+    <div class="premium-grid">
+      <div class="premium-card" data-plan="lite">
+        <div class="premium-card-head">
+          <span class="badge">LITE</span>
+          <h3>litePrem</h3>
+          <div class="premium-price">Rp35.000 <small>/ 25 hari</small></div>
+        </div>
+        <ul>
+          <li>Hemat <strong>Rp4.000</strong> di setiap layanan</li>
+          <li>Berlaku 25 hari sejak aktivasi</li>
+          <li>Diskon otomatis di keranjang</li>
+          <li>Bisa dipakai berkali-kali</li>
+        </ul>
+        <button type="button" class="btn btn-dark premium-buy" data-plan="lite">
+          Aktifkan litePrem
+        </button>
+      </div>
+
+      <div class="premium-card premium-card--super" data-plan="super">
+        <div class="premium-badge-top">BEST VALUE</div>
+        <div class="premium-card-head">
+          <span class="badge">SUPER</span>
+          <h3>premSUPER</h3>
+          <div class="premium-price">Rp45.000 <small>/ 30 hari</small></div>
+        </div>
+        <ul>
+          <li>Hemat <strong>Rp5.000</strong> di setiap layanan</li>
+          <li>Berlaku 30 hari sejak aktivasi</li>
+          <li>Diskon otomatis di keranjang</li>
+          <li>Hemat lebih banyak per layanan</li>
+        </ul>
+        <button type="button" class="btn btn-dark premium-buy" data-plan="super">
+          Aktifkan premSUPER
+        </button>
+      </div>
+    </div>
+
+    <div id="premiumStatusBox" class="premium-status" style="display:none;"></div>
+  </div>
+</section>
+
+<section class="block" id="section-3">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cara Order &amp; Verifikasi</h2>
+      <p>Setelah pembayaran, akan muncul struk pembayaran berisi nama jasa, harga, kode verifikasi, dan status "Menunggu Konfirmasi Admin".</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Pilih Layanan</h3>
+        <p>Tambahkan layanan ke keranjang, lalu buka keranjang.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Hubungi Admin</h3>
+        <p>Minta kode pembayaran ke admin melalui WhatsApp sebelum melakukan pembayaran.</p>
+        <a href="https://wa.me/6285731569186" target="_blank" rel="noopener" class="btn btn-wa">
+          Hubungi Admin
+        </a>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Verifikasi &amp; Bayar</h3>
+        <p>Masukkan kode dari admin, klik <strong>Verifikasi</strong>. Metode pembayaran akan muncul otomatis.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Konfirmasi ke Admin</h3>
+        <p>Klik <strong>Checkout via WhatsApp</strong>, kirim bukti transfer. Admin akan konfirmasi &amp; proses pesanan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="section-4">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Butuh joki tugas digital hari ini?</h2>
+      <p>Chat admin sekarang. Admin: <strong>0857-3156-9186</strong>. Semua karya dibuat manual, tanpa AI.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285731569186" target="_blank" rel="noopener" class="btn btn-dark">Chat Admin</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <span class="brand-name">
+            agcomstore
+            <small>GitJoki</small>
+          </span>
+        </div>
+        <p class="foot-desc">
+          agcomstore - GitJoki melayani editing, website, template guru, administrasi dokumen, dan kebutuhan digital ringan
+          dengan harga terjangkau.
+        </p>
+        <div class="foot-eco">
+          <span class="eco-dot"></span>
+          <span>Pembuatan tanpa AI — membantu menjaga ekosistem lingkungan dengan tidak menggunakan AI.</span>
+        </div>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul class="foot-list">
+          <li><a href="#section-2">Editing Canva</a></li>
+          <li><a href="#section-2">Editing Gambar / Video</a></li>
+          <li><a href="#section-2">Presentasi PPT</a></li>
+          <li><a href="#section-2">Build Website</a></li>
+          <li><a href="#section-2">Template Guru</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informasi</h4>
+        <ul class="foot-list">
+          <li><a href="#section-2">Daftar Harga</a></li>
+          <li><a href="#section-premium">Premium</a></li>
+          <li><a href="#section-3">Cara Order</a></li>
+          <li><a href="#section-4">Kontak Admin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak Admin</h4>
+        <ul class="foot-list">
+          <li>Admin: <a href="https://wa.me/6285731569186" target="_blank" rel="noopener">0857-3156-9186</a></li>
+          <li>Jam Operasional: 06:00 - 00:00</li>
+          <li>Status verifikasi: Menunggu Konfirmasi Admin</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 agcomstore - GitJoki. Semua hak dilindungi.</span>
+      <span>Editing, Website, Template Guru — semua bisa di-Joki! <a href="#" id="checkUsedCodesBtn">Cek Kode Terpakai</a></span>
+    </div>
+  </div>
+</footer>
+
+<button id="cartFab" class="cart-fab" type="button" aria-label="Buka keranjang">
+  Keranjang <span id="cartCount">0</span>
+</button>
+
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<aside id="cartPanel" class="cart-panel" aria-hidden="true">
+  <div class="cart-head">
+    <h3>Keranjang</h3>
+    <button id="cartClose" class="cart-close" type="button" aria-label="Tutup">&times;</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-summary">
+    <div class="cart-total-row" id="cartSubtotalRow" style="display:none;">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">Rp0</span>
+    </div>
+    <div class="cart-total-row cart-discount-row" id="cartDiscountRow" style="display:none;">
+      <span>Diskon Premium</span>
+      <span id="cartDiscount">-Rp0</span>
+    </div>
+    <div class="cart-total-row cart-total-final">
+      <span>Total</span>
+      <strong id="cartTotal">Rp0</strong>
+    </div>
+    <label for="paymentCode">1. Masukkan Kode Pembayaran dari Admin</label>
+    <input id="paymentCode" type="text" placeholder="Masukkan kode dari admin" autocomplete="off">
+    <small>Belum punya kode, atau kode sudah dipakai? Klik tombol di bawah untuk menghubungi admin.</small>
+    <div id="storageWarning" class="storage-warning">
+      Peringatan: Browser tidak mendukung penyimpanan permanen. Kode terpakai mungkin tidak tersimpan setelah refresh. Gunakan browser normal (bukan incognito).
+    </div>
+    <button id="requestCodeBtn" class="btn btn-wa" type="button">Minta Kode ke Admin</button>
+    <button id="verifyCodeBtn" class="btn btn-dark" type="button">Verifikasi Kode</button>
+    <div id="scanStep" class="scan-step">
+      <p class="scan-title">Kode valid. Silakan pilih metode pembayaran:</p>
+      <div class="pay-tabs" id="cartPayTabs">
+        <button type="button" class="pay-tab active" data-method="qris">DANA QRIS</button>
+        <button type="button" class="pay-tab" data-method="seabank">Seabank</button>
+        <button type="button" class="pay-tab" data-method="shopeepay">ShopeePay</button>
+      </div>
+      <div class="pay-content active" data-method="qris">
+        <img src="scan.jpg" alt="QRIS DANA" class="scan-img">
+        <p class="pay-hint">Scan QRIS DANA dengan aplikasi e-wallet Anda, lalu kirim bukti ke admin.</p>
+      </div>
+      <div class="pay-content" data-method="seabank">
+        <div class="account-box">
+          <span class="account-label">Bank Seabank</span>
+          <span class="account-number">9019 0810 7090</span>
+          <button type="button" class="copy-btn" data-copy="901908107090">Salin No. Rekening</button>
+        </div>
+      </div>
+      <div class="pay-content" data-method="shopeepay">
+        <div class="account-box">
+          <span class="account-label">ShopeePay</span>
+          <span class="account-number">+62 857-3156-9186</span>
+          <button type="button" class="copy-btn" data-copy="6285731569186">Salin Nomor</button>
+        </div>
+      </div>
+      <button id="checkoutBtn" class="btn btn-dark" type="button">
+        Konfirmasi &amp; Checkout via WhatsApp
+      </button>
+    </div>
+    <div class="used-codes-info">
+      <span>Kode sudah dipakai tersimpan</span>
+      <span><span id="usedCodesCount">0</span> kode</span>
+    </div>
+  </div>
+</aside>
+
+<div id="premiumModal" class="premium-modal" aria-hidden="true">
+  <div class="premium-modal-content">
+    <div class="premium-modal-head">
+      <h3>Aktifkan <span id="premiumPlanName">litePrem</span></h3>
+      <button id="premiumClose" class="cart-close" type="button">&times;</button>
+    </div>
+
+    <div class="premium-modal-body">
+      <div id="premiumPlanInfo" class="premium-plan-info"></div>
+
+      <div id="premiumStepPay" class="premium-step-block">
+        <p class="premium-step-label">
+          <span class="step-num-badge">1</span>
+          Lakukan Pembayaran Terlebih Dahulu
+        </p>
+        <div class="pay-tabs" id="premiumPayTabs">
+          <button type="button" class="pay-tab active" data-method="qris">DANA QRIS</button>
+          <button type="button" class="pay-tab" data-method="seabank">Seabank</button>
+          <button type="button" class="pay-tab" data-method="shopeepay">ShopeePay</button>
+        </div>
+        <div class="pay-content active" data-method="qris">
+          <img src="scan.jpg" alt="QRIS DANA" class="scan-img">
+          <p class="pay-hint">Scan QRIS DANA sesuai nominal premium di atas.</p>
+        </div>
+        <div class="pay-content" data-method="seabank">
+          <div class="account-box">
+            <span class="account-label">Bank Seabank</span>
+            <span class="account-number">9019 0810 7090</span>
+            <button type="button" class="copy-btn" data-copy="901908107090">Salin No. Rekening</button>
+          </div>
+        </div>
+        <div class="pay-content" data-method="shopeepay">
+          <div class="account-box">
+            <span class="account-label">ShopeePay</span>
+            <span class="account-number">+62 857-3156-9186</span>
+            <button type="button" class="copy-btn" data-copy="6285731569186">Salin Nomor</button>
+          </div>
+        </div>
+        <button id="premiumConfirmPay" class="btn btn-wa" type="button">
+          Saya Sudah Bayar, Lanjut Isi Kode
+        </button>
+      </div>
+
+      <div id="premiumStepCode" class="premium-step-block" style="display:none;">
+        <p class="premium-step-label">
+          <span class="step-num-badge">2</span>
+          Masukkan Kode dari Admin
+        </p>
+        <input id="premiumCode" type="text" placeholder="Masukkan kode dari admin" autocomplete="off">
+        <small>Belum punya kode, atau kode sudah dipakai? Klik tombol di bawah untuk menghubungi admin.</small>
+        <button id="premiumRequestCode" class="btn btn-wa" type="button">Minta Kode ke Admin</button>
+        <button id="premiumActivate" class="btn btn-dark" type="button" disabled>
+          Nyalakan Premium
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="successModal" class="success-modal" aria-hidden="true">
+  <div class="success-content">
+    <svg class="checkmark" viewBox="0 0 52 52">
+      <circle class="checkmark-circle" cx="26" cy="26" r="25"></circle>
+      <path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+    </svg>
+    <h2 id="successTitle">Transaksi Berhasil!</h2>
+    <p id="successMsg">Pesanan Anda sedang dikirim ke admin WhatsApp. Mohon tunggu konfirmasi.</p>
+    <button id="successClose" class="btn btn-dark" type="button">OK, Lanjutkan</button>
+  </div>
+</div>
+
+</div><!-- /#mainContent -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ========== TOKO TUTUP ========== */
+  var OPEN_HOUR = 6;
+  var CLOSE_HOUR = 0;
+  var closedOverlay = document.getElementById('closedOverlay');
+  var cdHours = document.getElementById('cdHours');
+  var cdMinutes = document.getElementById('cdMinutes');
+  var cdSeconds = document.getElementById('cdSeconds');
+  var countdownTimer = null;
+
+  function pad2Local(n) { return String(n).padStart(2, '0'); }
+  function isStoreClosed(now) { var h = now.getHours(); return h >= 0 && h < OPEN_HOUR; }
+
+  function getNextOpenTime(now) {
+    var next = new Date(now);
+    next.setHours(OPEN_HOUR, 0, 0, 0);
+    if (next.getTime() <= now.getTime()) next.setDate(next.getDate() + 1);
+    return next;
+  }
+
+  function renderCountdown() {
+    if (!cdHours || !cdMinutes || !cdSeconds) return;
+    var now = new Date();
+    var nextOpen = getNextOpenTime(now);
+    var diff = nextOpen.getTime() - now.getTime();
+    if (diff < 0) diff = 0;
+    var totalSec = Math.floor(diff / 1000);
+    cdHours.textContent = pad2Local(Math.floor(totalSec / 3600));
+    cdMinutes.textContent = pad2Local(Math.floor((totalSec % 3600) / 60));
+    cdSeconds.textContent = pad2Local(totalSec % 60);
+  }
+
+  function startCountdown() {
+    if (countdownTimer) clearInterval(countdownTimer);
+    renderCountdown();
+    countdownTimer = setInterval(function () {
+      renderCountdown();
+      if (!isStoreClosed(new Date())) hideClosedOverlay();
+    }, 1000);
+  }
+
+  function stopCountdown() {
+    if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+  }
+
+  function showClosedOverlay() {
+    if (!closedOverlay) return;
+    closedOverlay.classList.add('show');
+    closedOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    startCountdown();
+  }
+
+  function hideClosedOverlay() {
+    if (!closedOverlay) return;
+    closedOverlay.classList.remove('show');
+    closedOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    stopCountdown();
+    scheduleNextCheck();
+  }
+
+  var checkTimer = null;
+  function scheduleNextCheck() {
+    if (checkTimer) clearTimeout(checkTimer);
+    var now = new Date();
+    var target;
+    if (isStoreClosed(now)) {
+      target = new Date(now);
+      target.setHours(OPEN_HOUR, 0, 0, 0);
+      if (target.getTime() <= now.getTime()) target.setDate(target.getDate() + 1);
+    } else {
+      target = new Date(now);
+      target.setDate(target.getDate() + 1);
+      target.setHours(CLOSE_HOUR, 0, 0, 0);
+    }
+    var delay = Math.max(1000, target.getTime() - now.getTime());
+    checkTimer = setTimeout(function () { applyStoreStatus(); }, delay);
+  }
+
+  function applyStoreStatus() {
+    if (isStoreClosed(new Date())) showClosedOverlay();
+    else hideClosedOverlay();
+    scheduleNextCheck();
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) applyStoreStatus();
+  });
+
+  setInterval(function () {
+    var closed = isStoreClosed(new Date());
+    var isShowing = closedOverlay && closedOverlay.classList.contains('show');
+    if (closed && !isShowing) showClosedOverlay();
+    else if (!closed && isShowing) hideClosedOverlay();
+  }, 60000);
+
+  applyStoreStatus();
+
+  /* ========== STORAGE ========== */
+  var memoryFallback = {};
+  var storageMode = 'unknown';
+
+  function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toUTCString();
+    }
+    try { document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax'; } catch (e) {}
+  }
+
+  function getCookie(name) {
+    try {
+      var nameEQ = name + '=';
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function testLocalStorage() {
+    try {
+      localStorage.setItem('__gj_test__', '1');
+      var v = localStorage.getItem('__gj_test__');
+      localStorage.removeItem('__gj_test__');
+      return v === '1';
+    } catch (e) { return false; }
+  }
+
+  function storageGet(key) {
+    if (storageMode === 'localStorage' || storageMode === 'unknown') {
+      try { var v = localStorage.getItem(key); if (v !== null) return v; } catch (e) {}
+    }
+    var c = getCookie('_gj_' + key);
+    if (c !== null) return c;
+    return memoryFallback[key] || null;
+  }
+
+  function storageSet(key, value) {
+    if (storageMode === 'localStorage' || storageMode === 'unknown') {
+      try { localStorage.setItem(key, value); } catch (e) {}
+    }
+    setCookie('_gj_' + key, value, 365);
+    memoryFallback[key] = value;
+  }
+
+  function storageRemove(key) {
+    try { localStorage.removeItem(key); } catch (e) {}
+    setCookie('_gj_' + key, '', -1);
+    delete memoryFallback[key];
+  }
+
+  if (testLocalStorage()) storageMode = 'localStorage';
+  else {
+    storageMode = 'cookie';
+    var warningEl = document.getElementById('storageWarning');
+    if (warningEl) warningEl.classList.add('show');
+  }
+
+  /* ========== MENU MOBILE ========== */
+  var burger = document.querySelector('.burger');
+  var navMenu = document.querySelector('nav ul');
+
+  if (burger && navMenu) {
+    burger.addEventListener('click', function () {
+      if (navMenu.style.display === 'flex') navMenu.style.display = 'none';
+      else {
+        navMenu.style.display = 'flex';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.position = 'absolute';
+        navMenu.style.top = '76px';
+        navMenu.style.left = '0';
+        navMenu.style.right = '0';
+        navMenu.style.background = '#ffffff';
+        navMenu.style.padding = '20px 24px';
+        navMenu.style.borderBottom = '1px solid #e6d58a';
+        navMenu.style.gap = '16px';
+        navMenu.style.zIndex = '49';
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1000) {
+        navMenu.style.display = '';
+        navMenu.style.flexDirection = '';
+        navMenu.style.position = '';
+        navMenu.style.top = '';
+        navMenu.style.left = '';
+        navMenu.style.right = '';
+        navMenu.style.background = '';
+        navMenu.style.padding = '';
+        navMenu.style.borderBottom = '';
+        navMenu.style.gap = '';
+        navMenu.style.zIndex = '';
+      }
+    });
+  }
+
+  /* ========== SMOOTH SCROLL ========== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId === '') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (window.innerWidth <= 1000 && navMenu && navMenu.style.display === 'flex') navMenu.style.display = 'none';
+      }
+    });
+  });
+
+  /* ========== KONFIG ========== */
+  var CART_KEY = 'gitjoki_cart_v1';
+  var CODE_KEY = 'gitjoki_payment_code';
+  var PREMIUM_KEY = 'gitjoki_premium_v1';
+  var USED_KEY = 'gitjoki_used_codes_v1';
+  var WA_ADMIN = '6285731569186';
+  var BRAND = 'agcomstore - GitJoki';
+  var cart = new Map();
+  var selectedMethod = 'qris';
+
+  var PAYMENT_LABELS = {
+    qris: 'DANA QRIS (scan.jpg)',
+    seabank: 'Transfer Seabank 9019 0810 7090',
+    shopeepay: 'ShopeePay +62 857-3156-9186'
+  };
+
+  var CODE_REGEX = /^A[A-Za-z0-9]+al$/;
+  var PREMIUM_CODE_REGEX = /^B[A-Za-z0-9]+al$/;
+
+  var PREMIUM_PLANS = {
+    lite: { id: 'lite', name: 'litePrem', price: 35000, days: 25, discount: 4000 },
+    super: { id: 'super', name: 'premSUPER', price: 45000, days: 30, discount: 5000 }
+  };
+
+  var premium = null;
+  var BULAN = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+
+  /* ========== HELPERS ========== */
+  function formatRp(n) { return 'Rp' + Number(n || 0).toLocaleString('id-ID'); }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+
+  function formatDateTime(ts) {
+    var d = new Date(ts);
+    return pad2(d.getDate()) + ' ' + BULAN[d.getMonth()] + ' ' + d.getFullYear() +
+           ', ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  }
+
+  function formatCountdown(ms) {
+    if (ms <= 0) return '0 menit';
+    var totalMins = Math.floor(ms / 60000);
+    var days = Math.floor(totalMins / 1440);
+    var hours = Math.floor((totalMins % 1440) / 60);
+    var mins = totalMins % 60;
+    var parts = [];
+    if (days > 0) parts.push(days + ' hari');
+    if (hours > 0) parts.push(hours + ' jam');
+    if (mins > 0 && days === 0) parts.push(mins + ' menit');
+    if (parts.length === 0) parts.push('kurang dari 1 menit');
+    return parts.join(' ');
+  }
+
+  function normalizeCode(code) { return String(code || '').trim().toLowerCase(); }
+
+  function copyText(text, btn) {
+    var done = function () {
+      var original = btn.textContent;
+      btn.textContent = 'Tersalin!';
+      setTimeout(function () { btn.textContent = original; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(done);
+    } else {
+      var t = document.createElement('textarea');
+      t.value = text;
+      document.body.appendChild(t);
+      t.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(t);
+      done();
+    }
+  }
+
+  /* ========== KODE TERPAKAI ========== */
+  function getUsedCodes() {
+    try {
+      var raw = storageGet(USED_KEY);
+      if (!raw) return [];
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+
+  function isCodeUsed(code) {
+    if (!code) return false;
+    var normalized = normalizeCode(code);
+    return getUsedCodes().some(function (c) { return normalizeCode(c) === normalized; });
+  }
+
+  function markCodeUsed(code) {
+    if (!code) return;
+    var trimmed = String(code).trim();
+    var normalized = normalizeCode(trimmed);
+    var codes = getUsedCodes();
+    if (codes.some(function (c) { return normalizeCode(c) === normalized; })) return;
+    codes.push(trimmed);
+    storageSet(USED_KEY, JSON.stringify(codes));
+    updateUsedCodesIndicator();
+  }
+
+  function updateUsedCodesIndicator() {
+    var el = document.getElementById('usedCodesCount');
+    if (el) el.textContent = getUsedCodes().length;
+  }
+
+  window.gitjokiDebug = {
+    lihatKode: function () {
+      var codes = getUsedCodes();
+      alert('Kode yang sudah dipakai (' + codes.length + '):\n\n' + (codes.join('\n') || '(kosong)'));
+      return codes;
+    },
+    hapusSemuaKode: function () {
+      if (confirm('Hapus semua kode terpakai?')) {
+        storageRemove(USED_KEY);
+        updateUsedCodesIndicator();
+        alert('Semua kode terpakai dihapus.');
+      }
+    },
+    cekKode: function (code) {
+      var used = isCodeUsed(code);
+      alert('Kode "' + code + '": ' + (used ? 'SUDAH DIPAKAI' : 'belum dipakai'));
+      return used;
+    },
+    statusPenyimpanan: function () { alert('Mode penyimpanan: ' + storageMode); },
+    statusToko: function () {
+      var now = new Date();
+      alert('Sekarang: ' + pad2(now.getHours()) + ':' + pad2(now.getMinutes()) +
+            '\nStatus toko: ' + (isStoreClosed(now) ? 'TUTUP' : 'BUKA'));
+    },
+    paksaTutup: function () { showClosedOverlay(); },
+    paksaBuka: function () { hideClosedOverlay(); }
+  };
+
+  var checkUsedBtn = document.getElementById('checkUsedCodesBtn');
+  if (checkUsedBtn) {
+    checkUsedBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.gitjokiDebug.lihatKode();
+    });
+  }
+
+  /* ========== PREMIUM STATE ========== */
+  function loadPremium() {
+    try {
+      var raw = storageGet(PREMIUM_KEY);
+      if (!raw) return;
+      var p = JSON.parse(raw);
+      if (p && p.level && PREMIUM_PLANS[p.level] && p.expiresAt > Date.now()) premium = p;
+      else storageRemove(PREMIUM_KEY);
+    } catch (e) {}
+  }
+
+  function savePremium() {
+    if (premium) storageSet(PREMIUM_KEY, JSON.stringify(premium));
+    else storageRemove(PREMIUM_KEY);
+  }
+
+  function premiumActive() { return premium && premium.expiresAt > Date.now(); }
+
+  function getPremiumDiscount() {
+    if (!premiumActive()) return 0;
+    return PREMIUM_PLANS[premium.level].discount;
+  }
+
+  function activatePremium(planId) {
+    var plan = PREMIUM_PLANS[planId];
+    if (!plan) return;
+    premium = { level: planId, startedAt: Date.now(), expiresAt: Date.now() + plan.days * 86400000 };
+    savePremium();
+    updatePremiumUI();
+    renderCart();
+  }
+
+  function deactivatePremium() {
+    premium = null;
+    savePremium();
+    updatePremiumUI();
+    renderCart();
+  }
+
+  /* ========== HARGA KARTU LAYANAN ========== */
+  function getServiceBasePrice(priceEl) {
+    if (!priceEl) return 0;
+    var attr = priceEl.getAttribute('data-base-price');
+    if (attr) {
+      var p = parseInt(attr, 10);
+      if (!isNaN(p) && p > 0) return p;
+    }
+    /* Fallback: parse dari textContent */
+    var parsed = parseInt(String(priceEl.textContent).replace(/[^\d]/g, ''), 10);
+    if (!isNaN(parsed) && parsed > 0) {
+      priceEl.setAttribute('data-base-price', parsed);
+      return parsed;
+    }
+    return 0;
+  }
+
+  function updateServiceCardPrices() {
+    var isActive = premiumActive();
+    var discount = getPremiumDiscount();
+
+    document.querySelectorAll('#section-2 .services-grid .box').forEach(function (box) {
+      var priceEl = box.querySelector('.price');
+      if (!priceEl) return;
+
+      var base = getServiceBasePrice(priceEl);
+      if (base <= 0) return;
+
+      if (isActive && discount > 0) {
+        var eff = Math.max(0, base - discount);
+        priceEl.innerHTML =
+          '<span class="price-old">' + formatRp(base) + '</span>' +
+          '<span class="price-new">' + formatRp(eff) + '</span>' +
+          '<span class="price-badge-prem">PREMIUM</span>';
+      } else {
+        priceEl.textContent = formatRp(base);
+      }
+    });
+  }
+
+  /* ========== PREMIUM UI ========== */
+  var premiumStatusBox = document.getElementById('premiumStatusBox');
+  var _lastPremiumState = null;
+
+  function updatePremiumUI() {
+    var isActive = premiumActive();
+
+    if (premiumStatusBox) {
+      if (isActive) {
+        var plan = PREMIUM_PLANS[premium.level];
+        var sisaMs = premium.expiresAt - Date.now();
+        premiumStatusBox.style.display = 'flex';
+        premiumStatusBox.innerHTML =
+          '<div>' +
+            '<div class="premium-status-info">Premium Aktif: ' + plan.name + '</div>' +
+            '<div class="premium-status-meta">' +
+              'Hemat <strong>' + formatRp(plan.discount) + '</strong> di setiap layanan' +
+              '<br>Berakhir: <strong>' + formatDateTime(premium.expiresAt) + '</strong>' +
+              ' &middot; sisa <strong>' + formatCountdown(sisaMs) + '</strong>' +
+            '</div>' +
+          '</div>' +
+          '<button type="button" class="btn btn-light" id="premiumDeactivateBtn">Nonaktifkan</button>';
+
+        var deactBtn = document.getElementById('premiumDeactivateBtn');
+        if (deactBtn) {
+          deactBtn.addEventListener('click', function () {
+            if (confirm('Nonaktifkan premium? Masa aktif tidak bisa dikembalikan.')) deactivatePremium();
+          });
+        }
+      } else {
+        premiumStatusBox.style.display = 'none';
+        premiumStatusBox.innerHTML = '';
+      }
+    }
+
+    document.querySelectorAll('.premium-buy').forEach(function (btn) {
+      var planId = btn.getAttribute('data-plan');
+      var plan = PREMIUM_PLANS[planId];
+      if (!plan) return;
+
+      if (isActive) {
+        btn.textContent = premium.level === planId ? 'Plan Aktif' : 'Premium Lain Aktif';
+        btn.disabled = true;
+        btn.style.opacity = '0.6';
+        btn.style.cursor = 'not-allowed';
+      } else {
+        btn.textContent = 'Aktifkan ' + plan.name;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+      }
+    });
+
+    var stateKey = isActive ? premium.level : 'none';
+    if (stateKey !== _lastPremiumState) {
+      _lastPremiumState = stateKey;
+      updateServiceCardPrices();
+    }
+  }
+
+  setInterval(function () {
+    if (premiumActive() || (_lastPremiumState && _lastPremiumState !== 'none')) updatePremiumUI();
+  }, 30000);
+
+  /* ========== PREMIUM MODAL ========== */
+  var premiumModal = document.getElementById('premiumModal');
+  var premiumPlanNameEl = document.getElementById('premiumPlanName');
+  var premiumPlanInfoEl = document.getElementById('premiumPlanInfo');
+  var premiumCodeEl = document.getElementById('premiumCode');
+  var premiumStepPay = document.getElementById('premiumStepPay');
+  var premiumStepCode = document.getElementById('premiumStepCode');
+  var premiumRequestBtn = document.getElementById('premiumRequestCode');
+  var premiumConfirmPayBtn = document.getElementById('premiumConfirmPay');
+  var premiumActivateBtn = document.getElementById('premiumActivate');
+  var premiumPayTabs = document.getElementById('premiumPayTabs');
+  var premiumCloseBtn = document.getElementById('premiumClose');
+  var currentPremiumPlan = 'lite';
+  var selectedPremiumMethod = 'qris';
+
+  function openPremiumModal(planId) {
+    var plan = PREMIUM_PLANS[planId];
+    if (!plan) return;
+    currentPremiumPlan = planId;
+    selectedPremiumMethod = 'qris';
+
+    if (premiumPlanNameEl) premiumPlanNameEl.textContent = plan.name;
+    if (premiumPlanInfoEl) {
+      premiumPlanInfoEl.innerHTML =
+        '<strong>' + plan.name + '</strong>' +
+        '<div class="plan-price">' + formatRp(plan.price) + ' / ' + plan.days + ' hari</div>' +
+        '<div class="plan-meta">Hemat ' + formatRp(plan.discount) + ' di setiap layanan</div>';
+    }
+
+    if (premiumCodeEl) premiumCodeEl.value = '';
+    if (premiumStepPay) premiumStepPay.style.display = 'flex';
+    if (premiumStepCode) premiumStepCode.style.display = 'none';
+    if (premiumActivateBtn) {
+      premiumActivateBtn.disabled = true;
+      premiumActivateBtn.textContent = 'Nyalakan Premium';
+    }
+
+    if (premiumPayTabs) {
+      premiumPayTabs.querySelectorAll('.pay-tab').forEach(function (t, i) {
+        t.classList.toggle('active', i === 0);
+      });
+      premiumStepPay.querySelectorAll('.pay-content').forEach(function (c, i) {
+        c.classList.toggle('active', i === 0);
+      });
+    }
+
+    if (premiumModal) {
+      premiumModal.classList.add('show');
+      premiumModal.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function closePremiumModal() {
+    if (premiumModal) {
+      premiumModal.classList.remove('show');
+      premiumModal.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  document.querySelectorAll('.premium-buy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (premiumActive()) return;
+      openPremiumModal(btn.getAttribute('data-plan'));
+    });
+  });
+
+  if (premiumCloseBtn) premiumCloseBtn.addEventListener('click', closePremiumModal);
+  if (premiumModal) {
+    premiumModal.addEventListener('click', function (e) {
+      if (e.target === premiumModal) closePremiumModal();
+    });
+  }
+
+  if (premiumConfirmPayBtn) {
+    premiumConfirmPayBtn.addEventListener('click', function () {
+      if (premiumStepPay) premiumStepPay.style.display = 'none';
+      if (premiumStepCode) premiumStepCode.style.display = 'flex';
+      if (premiumCodeEl) premiumCodeEl.focus();
+    });
+  }
+
+  if (premiumCodeEl) {
+    premiumCodeEl.addEventListener('input', function () {
+      var code = premiumCodeEl.value.trim();
+      if (!premiumActivateBtn) return;
+      if (code.length === 0) {
+        premiumActivateBtn.disabled = true;
+        premiumActivateBtn.textContent = 'Nyalakan Premium';
+      } else if (!PREMIUM_CODE_REGEX.test(code)) {
+        premiumActivateBtn.disabled = true;
+        premiumActivateBtn.textContent = 'Format Kode Salah';
+      } else if (isCodeUsed(code)) {
+        premiumActivateBtn.disabled = true;
+        premiumActivateBtn.textContent = 'Kode Sudah Dipakai';
+      } else {
+        premiumActivateBtn.disabled = false;
+        premiumActivateBtn.textContent = 'Nyalakan Premium';
+      }
+    });
+  }
+
+  if (premiumRequestBtn) {
+    premiumRequestBtn.addEventListener('click', function () {
+      var plan = PREMIUM_PLANS[currentPremiumPlan];
+      var msg = 'Halo Admin ' + BRAND + ', saya mau berlangganan ' + plan.name +
+                ' (' + formatRp(plan.price) + ' / ' + plan.days + ' hari). ' +
+                'Saya sudah melakukan pembayaran. Mohon diberikan kode pembayaran premium. Terima kasih.';
+      window.open('https://wa.me/' + WA_ADMIN + '?text=' + encodeURIComponent(msg), '_blank');
+    });
+  }
+
+  if (premiumActivateBtn) {
+    premiumActivateBtn.addEventListener('click', function () {
+      var planId = currentPremiumPlan;
+      var plan = PREMIUM_PLANS[planId];
+      var code = premiumCodeEl ? premiumCodeEl.value.trim() : '';
+
+      if (!code) { alert('Masukkan kode pembayaran premium dari admin terlebih dahulu.'); return; }
+      if (!PREMIUM_CODE_REGEX.test(code)) { alert('Kode premium tidak valid. Pastikan kode sesuai yang diberikan admin.'); return; }
+      if (isCodeUsed(code)) { alert('Kode ini sudah pernah dipakai. Silakan minta kode baru ke admin.'); return; }
+
+      markCodeUsed(code);
+      activatePremium(planId);
+      closePremiumModal();
+
+      showSuccess({
+        title: 'Premium Aktif',
+        message: plan.name + ' aktif hingga ' + formatDateTime(premium.expiresAt) +
+                 '. Harga layanan otomatis tercoret & hemat ' + formatRp(plan.discount) + ' di setiap layanan.'
+      });
+    });
+  }
+
+  if (premiumPayTabs && premiumStepPay) {
+    premiumPayTabs.querySelectorAll('.pay-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var method = tab.getAttribute('data-method');
+        selectedPremiumMethod = method;
+        premiumPayTabs.querySelectorAll('.pay-tab').forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        premiumStepPay.querySelectorAll('.pay-content').forEach(function (c) {
+          c.classList.toggle('active', c.getAttribute('data-method') === method);
+        });
+      });
+    });
+  }
+
+  /* ========== KERANJANG ========== */
+  function loadCart() {
+    try {
+      var raw = storageGet(CART_KEY);
+      if (!raw) return;
+      var arr = JSON.parse(raw);
+      if (!Array.isArray(arr)) return;
+      arr.forEach(function (item) {
+        if (item && item.name && item.price) {
+          cart.set(item.name, {
+            name: item.name,
+            price: Number(item.price) || 0,
+            qty: Math.max(1, Number(item.qty) || 1)
+          });
+        }
+      });
+    } catch (e) {}
+  }
+
+  function saveCart() {
+    storageSet(CART_KEY, JSON.stringify(Array.from(cart.values())));
+  }
+
+  function getItemDiscount(item) {
+    var discount = getPremiumDiscount();
+    if (discount <= 0) return 0;
+    return Math.min(discount, item.price);
+  }
+
+  function getItemEffectivePrice(item) { return item.price - getItemDiscount(item); }
+
+  function getCartSubtotal() {
+    var total = 0;
+    cart.forEach(function (item) { total += item.price * item.qty; });
+    return total;
+  }
+
+  function getCartTotalDiscount() {
+    var total = 0;
+    cart.forEach(function (item) { total += getItemDiscount(item) * item.qty; });
+    return total;
+  }
+
+  function getCartEffectiveTotal() {
+    return getCartSubtotal() - getCartTotalDiscount();
+  }
+
+  function getCartQty() {
+    var qty = 0;
+    cart.forEach(function (item) { qty += item.qty; });
+    return qty;
+  }
+
+  var cartFab = document.getElementById('cartFab');
+  var cartPanel = document.getElementById('cartPanel');
+  var cartOverlay = document.getElementById('cartOverlay');
+  var cartClose = document.getElementById('cartClose');
+  var cartItemsEl = document.getElementById('cartItems');
+  var cartCountEl = document.getElementById('cartCount');
+  var cartTotalEl = document.getElementById('cartTotal');
+  var cartSubtotalRow = document.getElementById('cartSubtotalRow');
+  var cartDiscountRow = document.getElementById('cartDiscountRow');
+  var cartSubtotalEl = document.getElementById('cartSubtotal');
+  var cartDiscountEl = document.getElementById('cartDiscount');
+  var paymentCodeEl = document.getElementById('paymentCode');
+  var requestCodeBtn = document.getElementById('requestCodeBtn');
+  var verifyCodeBtn = document.getElementById('verifyCodeBtn');
+  var scanStep = document.getElementById('scanStep');
+  var checkoutBtn = document.getElementById('checkoutBtn');
+  var cartPayTabs = document.getElementById('cartPayTabs');
+
+  function renderCart() {
+    if (!cartItemsEl) return;
+
+    if (cart.size === 0) {
+      cartItemsEl.innerHTML = '<p class="cart-empty">Keranjang masih kosong. Tambahkan layanan dulu.</p>';
+    } else {
+      cartItemsEl.innerHTML = Array.from(cart.values()).map(function (item) {
+        var disc = getItemDiscount(item);
+        var eff = getItemEffectivePrice(item);
+        var priceHtml;
+        if (disc > 0) {
+          priceHtml =
+            '<span class="cart-price-old">' + formatRp(item.price) + '</span>' +
+            '<span class="cart-price-new">' + formatRp(eff) + '</span>';
+        } else {
+          priceHtml = '<span>' + formatRp(item.price) + '</span>';
+        }
+        return (
+          '<div class="cart-item" data-name="' + escapeHtml(item.name) + '">' +
+            '<div class="cart-item-info">' +
+              '<strong>' + escapeHtml(item.name) + '</strong>' +
+              priceHtml +
+            '</div>' +
+            '<div class="cart-item-actions">' +
+              '<button type="button" class="qty-btn" data-action="minus">-</button>' +
+              '<span class="qty">' + item.qty + '</span>' +
+              '<button type="button" class="qty-btn" data-action="plus">+</button>' +
+              '<button type="button" class="remove-btn" data-action="remove">Hapus</button>' +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    var subtotal = getCartSubtotal();
+    var totalDiscount = getCartTotalDiscount();
+    var finalTotal = getCartEffectiveTotal();
+    var hasDiscount = totalDiscount > 0 && cart.size > 0;
+
+    if (cartSubtotalRow) cartSubtotalRow.style.display = hasDiscount ? 'flex' : 'none';
+    if (cartDiscountRow) cartDiscountRow.style.display = hasDiscount ? 'flex' : 'none';
+    if (cartSubtotalEl) cartSubtotalEl.textContent = formatRp(subtotal);
+    if (cartDiscountEl) cartDiscountEl.textContent = '- ' + formatRp(totalDiscount);
+
+    if (cartCountEl) cartCountEl.textContent = getCartQty();
+    if (cartTotalEl) cartTotalEl.textContent = formatRp(finalTotal);
+  }
+
+  function addToCart(name, price) {
+    if (!name || !price) return;
+    var existing = cart.get(name);
+    if (existing) existing.qty += 1;
+    else cart.set(name, { name: name, price: Number(price), qty: 1 });
+    saveCart();
+    renderCart();
+    openCart();
+  }
+
+  function changeQty(name, delta) {
+    var item = cart.get(name);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) cart.delete(name);
+    saveCart();
+    renderCart();
+  }
+
+  function removeItem(name) {
+    cart.delete(name);
+    saveCart();
+    renderCart();
+  }
+
+  function openCart() {
+    if (cartPanel) cartPanel.classList.add('open');
+    if (cartOverlay) cartOverlay.classList.add('open');
+    if (cartPanel) cartPanel.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeCart() {
+    if (cartPanel) cartPanel.classList.remove('open');
+    if (cartOverlay) cartOverlay.classList.remove('open');
+    if (cartPanel) cartPanel.setAttribute('aria-hidden', 'true');
+  }
+
+  function hideScanStep() { if (scanStep) scanStep.classList.remove('show'); }
+  function showScanStep() { if (scanStep) scanStep.classList.add('show'); }
+
+  function buildOrderText(requestOnly) {
+    var lines = [];
+    cart.forEach(function (item) {
+      var disc = getItemDiscount(item);
+      var eff = getItemEffectivePrice(item);
+      if (disc > 0) {
+        lines.push('- ' + item.name + ' x' + item.qty + ' (' + formatRp(item.price) + ' → ' + formatRp(eff) + ') = ' + formatRp(eff * item.qty));
+      } else {
+        lines.push('- ' + item.name + ' x' + item.qty + ' = ' + formatRp(item.price * item.qty));
+      }
+    });
+
+    var subtotal = getCartSubtotal();
+    var totalDiscount = getCartTotalDiscount();
+    var finalTotal = getCartEffectiveTotal();
+    var code = paymentCodeEl ? paymentCodeEl.value.trim() : '';
+
+    var text = 'Halo Admin ' + BRAND + ', saya mau order:\n';
+    text += lines.length ? lines.join('\n') : '- (belum ada item di keranjang)';
+
+    if (totalDiscount > 0 && premium) {
+      text += '\n\nSubtotal: ' + formatRp(subtotal);
+      text += '\nDiskon Premium (' + PREMIUM_PLANS[premium.level].name + '): -' + formatRp(totalDiscount);
+      text += '\nTotal: ' + formatRp(finalTotal);
+    } else {
+      text += '\n\nTotal: ' + formatRp(finalTotal);
+    }
+
+    if (requestOnly || !code) {
+      text += '\n\nSaya belum punya kode pembayaran. Mohon dibantu untuk mendapatkan kode pembayaran.';
+    } else {
+      text += '\nKode Pembayaran: ' + code;
+      text += '\nMetode Pembayaran: ' + PAYMENT_LABELS[selectedMethod];
+    }
+
+    text += '\n\nMohon konfirmasi. Terima kasih.';
+    return text;
+  }
+
+  function openWhatsApp(text) {
+    window.open('https://wa.me/' + WA_ADMIN + '?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  /* ========== TOMBOL KERANJANG DI KARTU LAYANAN ========== */
+  function initAddToCartButtons() {
+    document.querySelectorAll('#section-2 .services-grid .box').forEach(function (box) {
+      /* Cegah dobel tombol */
+      if (box.querySelector('.add-btn')) return;
+
+      var nameEl = box.querySelector('h3');
+      var priceEl = box.querySelector('.price');
+      if (!nameEl || !priceEl) return;
+
+      var name = nameEl.textContent.trim();
+      var price = getServiceBasePrice(priceEl);
+      if (!name || !price) return;
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'add-btn';
+      btn.textContent = '+ Keranjang';
+      btn.addEventListener('click', function () { addToCart(name, price); });
+      box.appendChild(btn);
+    });
+  }
+
+  if (cartItemsEl) {
+    cartItemsEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-action]');
+      if (!btn) return;
+      var row = btn.closest('.cart-item');
+      if (!row) return;
+      var name = row.getAttribute('data-name');
+      var action = btn.getAttribute('data-action');
+      if (action === 'plus') changeQty(name, 1);
+      if (action === 'minus') changeQty(name, -1);
+      if (action === 'remove') removeItem(name);
+    });
+  }
+
+  if (cartFab) cartFab.addEventListener('click', openCart);
+  if (cartClose) cartClose.addEventListener('click', closeCart);
+  if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+  if (paymentCodeEl) {
+    var savedCode = storageGet(CODE_KEY);
+    if (savedCode) paymentCodeEl.value = savedCode;
+    paymentCodeEl.addEventListener('input', function () {
+      storageSet(CODE_KEY, paymentCodeEl.value);
+      hideScanStep();
+    });
+  }
+
+  if (requestCodeBtn) {
+    requestCodeBtn.addEventListener('click', function () {
+      openWhatsApp(buildOrderText(true));
+    });
+  }
+
+  if (verifyCodeBtn) {
+    verifyCodeBtn.addEventListener('click', function () {
+      if (cart.size === 0) { alert('Keranjang masih kosong. Tambahkan layanan dulu.'); return; }
+      var code = paymentCodeEl ? paymentCodeEl.value.trim() : '';
+      if (!code) { alert('Masukkan kode pembayaran dari admin terlebih dahulu.'); return; }
+      if (!CODE_REGEX.test(code)) {
+        alert('Kode pembayaran tidak valid. Pastikan kode sesuai yang diberikan admin.');
+        hideScanStep();
+        return;
+      }
+      if (isCodeUsed(code)) {
+        alert('Kode ini sudah pernah dipakai. Silakan minta kode baru ke admin.');
+        hideScanStep();
+        return;
+      }
+      showScanStep();
+    });
+  }
+
+  if (cartPayTabs && scanStep) {
+    cartPayTabs.querySelectorAll('.pay-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var method = tab.getAttribute('data-method');
+        selectedMethod = method;
+        cartPayTabs.querySelectorAll('.pay-tab').forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        scanStep.querySelectorAll('.pay-content').forEach(function (c) {
+          c.classList.toggle('active', c.getAttribute('data-method') === method);
+        });
+      });
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+    var text = btn.getAttribute('data-copy');
+    if (text) copyText(text, btn);
+  });
+
+  /* ========== SUCCESS MODAL ========== */
+  var successModal = document.getElementById('successModal');
+  var successClose = document.getElementById('successClose');
+  var successTitle = document.getElementById('successTitle');
+  var successMsg = document.getElementById('successMsg');
+  var successCb = null;
+
+  function showSuccess(opts, callback) {
+    if (typeof opts === 'function') { callback = opts; opts = {}; }
+    opts = opts || {};
+    successCb = callback || null;
+    if (successTitle) successTitle.textContent = opts.title || 'Transaksi Berhasil!';
+    if (successMsg) successMsg.textContent = opts.message || 'Pesanan Anda sedang dikirim ke admin WhatsApp. Mohon tunggu konfirmasi.';
+    if (!successModal) { if (successCb) successCb(); return; }
+    successModal.classList.add('show');
+    successModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeSuccess() {
+    if (!successModal) return;
+    successModal.classList.remove('show');
+    successModal.setAttribute('aria-hidden', 'true');
+    if (successCb) { var cb = successCb; successCb = null; cb(); }
+  }
+
+  if (successClose) successClose.addEventListener('click', closeSuccess);
+  if (successModal) {
+    successModal.addEventListener('click', function (e) {
+      if (e.target === successModal) closeSuccess();
+    });
+  }
+
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', function () {
+      if (cart.size === 0) { alert('Keranjang masih kosong. Tambahkan layanan dulu.'); return; }
+      var code = paymentCodeEl ? paymentCodeEl.value.trim() : '';
+      if (!CODE_REGEX.test(code)) {
+        alert('Kode pembayaran belum valid. Klik "Verifikasi Kode" dulu.');
+        hideScanStep();
+        return;
+      }
+      if (isCodeUsed(code)) {
+        alert('Kode ini sudah pernah dipakai. Silakan minta kode baru ke admin.');
+        hideScanStep();
+        return;
+      }
+
+      var text = buildOrderText(false);
+      markCodeUsed(code);
+
+      if (!isCodeUsed(code)) {
+        alert('Gagal menyimpan kode. Silakan coba lagi atau gunakan browser lain.');
+        return;
+      }
+
+      if (paymentCodeEl) paymentCodeEl.value = '';
+      storageRemove(CODE_KEY);
+      hideScanStep();
+
+      showSuccess({
+        title: 'Transaksi Berhasil!',
+        message: 'Kode pembayaran telah dipakai dan tersimpan. Pesanan dikirim ke admin WhatsApp. Untuk order lagi, minta kode baru ke admin.'
+      }, function () {
+        openWhatsApp(text);
+      });
+    });
+  }
+
+  /* ========== INIT — URUTAN PENTING ========== */
+  /* 1. Simpan data-base-price ke setiap .price (fallback dari HTML sudah ada juga) */
+  document.querySelectorAll('#section-2 .services-grid .box .price').forEach(function (priceEl) {
+    getServiceBasePrice(priceEl);
+  });
+
+  /* 2. Buat tombol + Keranjang SEBELUM premium di-render */
+  initAddToCartButtons();
+
+  /* 3. Load state premium & cart */
+  loadPremium();
+  loadCart();
+  updatePremiumUI();
+  updateServiceCardPrices();
+  renderCart();
+  hideScanStep();
+  updateUsedCodesIndicator();
+
+  console.log('[GitJoki] Init selesai. Tombol keranjang:', document.querySelectorAll('.add-btn').length);
+
+});
+</script>
+
+</body>
+</html>
