@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>agcomstore - GitJoki — Jasa Editing, Website, Template Guru</title>
+<title>agcomstore - GitJoki — Jasa Website, Pengerjaan Tugas, Perbaikan File, Darurat Digital</title>
 
 <style>
   :root {
-    --yellow: #ffc800;
-    --yellow-soft: #ffe27a;
-    --yellow-pale: #fff6d1;
-    --ink: #1a1608;
-    --ink-soft: #5a5440;
-    --line: #e6d58a;
+    /* === TEMA BIRU (pengganti kuning) === */
+    --blue: #1e6bff;
+    --blue-soft: #a9c6ff;
+    --blue-pale: #eaf1ff;
+    --blue-deep: #0b3fa8;
+    --ink: #0d1b3a;
+    --ink-soft: #4a5570;
+    --line: #b9cdf5;
     --white: #ffffff;
     --green: #2f9e44;
     --red: #c92a2a;
@@ -50,19 +52,19 @@
 
   .brand-mark {
     width: 38px; height: 38px; border-radius: 9px;
-    background: var(--yellow); position: relative; flex: none;
+    background: var(--blue); position: relative; flex: none;
   }
 
   .brand-mark::before {
     content: ""; position: absolute; inset: 9px 10px;
-    border: 2.5px solid var(--ink); border-bottom: none;
+    border: 2.5px solid var(--white); border-bottom: none;
     border-radius: 3px 3px 0 0;
   }
 
   .brand-mark::after {
     content: ""; position: absolute; left: 50%; bottom: 9px;
     transform: translateX(-50%); width: 6px; height: 10px;
-    background: var(--ink); border-radius: 1px 1px 0 0;
+    background: var(--white); border-radius: 1px 1px 0 0;
   }
 
   .brand-name {
@@ -83,18 +85,18 @@
     border-bottom: 2px solid transparent;
     transition: color 0.18s, border-color 0.18s;
   }
-  nav a:hover { color: var(--ink); border-color: var(--yellow); }
+  nav a:hover { color: var(--ink); border-color: var(--blue); }
 
   .nav-cta {
-    background: var(--yellow); color: var(--ink);
+    background: var(--blue); color: #fff;
     font-size: 14px; font-weight: 700;
     padding: 11px 22px; border-radius: 7px;
   }
-  .nav-cta:hover { background: var(--yellow-soft); }
+  .nav-cta:hover { background: var(--blue-deep); }
 
   .burger { display: none; }
 
-  .hero { background: var(--yellow); padding: 80px 0; }
+  .hero { background: var(--blue); padding: 80px 0; color: #fff; }
 
   .hero-inner {
     display: grid; grid-template-columns: 1.05fr 0.95fr;
@@ -103,8 +105,8 @@
 
   .hero-text .eyebrow {
     display: inline-block;
-    background: rgba(26, 22, 8, 0.08);
-    border: 1px solid rgba(26, 22, 8, 0.12);
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     padding: 7px 12px; border-radius: 999px;
     font-size: 12.5px; font-weight: 800; letter-spacing: 0.4px;
   }
@@ -114,12 +116,12 @@
     line-height: 1.05; letter-spacing: -2px; margin: 18px 0;
   }
 
-  .hero-text p { font-size: 18px; max-width: 560px; color: var(--ink); }
+  .hero-text p { font-size: 18px; max-width: 560px; color: #eaf1ff; }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
   .eco-slogan {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--ink); color: var(--yellow);
+    background: var(--ink); color: var(--blue-soft);
     padding: 10px 16px; border-radius: 999px;
     font-size: 12.5px; font-weight: 800;
     letter-spacing: 0.2px; margin-top: 26px;
@@ -141,23 +143,24 @@
     font-weight: 800; font-size: 14.5px; transition: 0.18s ease;
   }
 
-  .btn-dark { background: var(--ink); color: var(--yellow); }
-  .btn-dark:hover { background: #2b2510; }
+  .btn-dark { background: var(--ink); color: var(--blue-soft); }
+  .btn-dark:hover { background: #16294f; }
   .btn-dark:disabled, .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
   .btn-light {
     background: var(--white); color: var(--ink);
-    border: 1px solid rgba(26, 22, 8, 0.12);
+    border: 1px solid rgba(13, 27, 58, 0.12);
   }
-  .btn-light:hover { background: var(--yellow-pale); }
+  .btn-light:hover { background: var(--blue-pale); }
 
   .btn-wa { background: #25d366; color: #fff; }
   .btn-wa:hover { background: #1ebe5b; }
 
   .hero-card {
     background: var(--white); border-radius: 16px; padding: 28px;
-    box-shadow: 0 22px 50px rgba(26, 22, 8, 0.16);
-    border: 1px solid rgba(26, 22, 8, 0.08);
+    box-shadow: 0 22px 50px rgba(13, 27, 58, 0.24);
+    border: 1px solid rgba(13, 27, 58, 0.08);
+    color: var(--ink);
   }
 
   .hero-card .badge { margin-bottom: 14px; }
@@ -167,6 +170,7 @@
   .price-big {
     font-size: 38px; font-weight: 900;
     letter-spacing: -1.5px; line-height: 1; margin: 18px 0 4px;
+    color: var(--blue-deep);
   }
 
   .hero-card ul { margin-top: 18px; display: grid; gap: 9px; font-size: 14px; }
@@ -174,7 +178,7 @@
     display: flex; gap: 9px; align-items: flex-start; color: var(--ink-soft);
   }
   .hero-card li::before {
-    content: "-"; color: var(--ink); font-weight: 900; flex: none;
+    content: "-"; color: var(--blue); font-weight: 900; flex: none;
   }
 
   .hero-card .eco-mini {
@@ -208,7 +212,7 @@
 
   .badge {
     display: inline-block; width: fit-content;
-    background: var(--yellow-pale); color: var(--ink);
+    background: var(--blue-pale); color: var(--blue-deep);
     border: 1px solid var(--line);
     padding: 5px 10px; border-radius: 999px;
     font-size: 12px; font-weight: 800;
@@ -267,15 +271,15 @@
   .step-num {
     width: 34px; height: 34px;
     display: inline-flex; align-items: center; justify-content: center;
-    border-radius: 50%; background: var(--yellow);
-    font-weight: 900; margin-bottom: 14px;
+    border-radius: 50%; background: var(--blue);
+    color: #fff; font-weight: 900; margin-bottom: 14px;
   }
 
   .step h3 { font-size: 16px; margin-bottom: 6px; }
   .step p { font-size: 13.5px; color: var(--ink-soft); }
   .step .btn { margin-top: 14px; align-self: flex-start; padding: 9px 14px; font-size: 12.5px; }
 
-  .cta { background: var(--yellow); padding: 64px 0; }
+  .cta { background: var(--blue); padding: 64px 0; color: #fff; }
   .cta-inner {
     display: flex; align-items: center; justify-content: space-between;
     gap: 26px; flex-wrap: wrap;
@@ -284,31 +288,32 @@
     font-size: clamp(30px, 4vw, 42px);
     line-height: 1.1; letter-spacing: -1.2px; margin-bottom: 8px;
   }
-  .cta p { max-width: 620px; font-size: 15.5px; }
+  .cta p { max-width: 620px; font-size: 15.5px; color: #eaf1ff; }
+
   .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
   footer {
-    background: var(--ink); color: var(--yellow-pale);
+    background: var(--ink); color: var(--blue-pale);
     padding: 56px 0 0; font-size: 13.5px;
   }
 
   .foot-grid {
     display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
     gap: 44px; padding-bottom: 44px;
-    border-bottom: 1px solid rgba(255, 200, 0, 0.16);
+    border-bottom: 1px solid rgba(169, 198, 255, 0.18);
   }
 
   footer .brand-name { color: var(--white); }
-  footer .brand-name small { color: #8a8060; }
+  footer .brand-name small { color: #8a9bbd; }
 
   footer h4 {
-    color: var(--yellow); font-size: 12.5px;
+    color: var(--blue-soft); font-size: 12.5px;
     text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px;
   }
 
-  .foot-list li { margin-bottom: 8px; color: #8a8060; }
-  .foot-list a:hover { color: var(--yellow); }
-  .foot-desc { color: #8a8060; margin-top: 14px; max-width: 320px; }
+  .foot-list li { margin-bottom: 8px; color: #8a9bbd; }
+  .foot-list a:hover { color: var(--blue-soft); }
+  .foot-desc { color: #8a9bbd; margin-top: 14px; max-width: 320px; }
 
   .foot-eco {
     display: inline-flex; align-items: center; gap: 8px;
@@ -327,15 +332,15 @@
 
   .foot-bottom {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 22px 0; font-size: 12.5px; color: #8a8060;
+    padding: 22px 0; font-size: 12.5px; color: #8a9bbd;
     flex-wrap: wrap; gap: 10px;
   }
 
-  .foot-bottom a { color: #8a8060; text-decoration: underline; font-size: 11px; }
-  .foot-bottom a:hover { color: var(--yellow); }
+  .foot-bottom a { color: #8a9bbd; text-decoration: underline; font-size: 11px; }
+  .foot-bottom a:hover { color: var(--blue-soft); }
 
   .premium-section {
-    background: linear-gradient(180deg, #fffdf3 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
@@ -354,18 +359,18 @@
 
   .premium-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 36px rgba(26, 22, 8, 0.1);
+    box-shadow: 0 16px 36px rgba(13, 27, 58, 0.12);
   }
 
   .premium-card--super {
-    border-color: var(--yellow);
-    background: linear-gradient(180deg, #fff9e0 0%, #ffffff 100%);
+    border-color: var(--blue);
+    background: linear-gradient(180deg, #eef4ff 0%, #ffffff 100%);
   }
 
   .premium-badge-top {
     position: absolute; top: -13px; left: 50%;
     transform: translateX(-50%);
-    background: var(--ink); color: var(--yellow);
+    background: var(--ink); color: var(--blue-soft);
     padding: 5px 16px; border-radius: 999px;
     font-size: 10.5px; font-weight: 900;
     letter-spacing: 0.8px; white-space: nowrap;
@@ -376,6 +381,7 @@
   .premium-price {
     font-size: 30px; font-weight: 900;
     letter-spacing: -1px; line-height: 1.1;
+    color: var(--blue-deep);
   }
 
   .premium-price small {
@@ -397,8 +403,8 @@
 
   .premium-status {
     max-width: 860px; margin: 30px auto 0;
-    background: linear-gradient(135deg, var(--ink) 0%, #3a2f10 100%);
-    color: var(--yellow); border-radius: 14px;
+    background: linear-gradient(135deg, var(--ink) 0%, #163a7a 100%);
+    color: var(--blue-soft); border-radius: 14px;
     padding: 22px 24px;
     display: flex; justify-content: space-between;
     align-items: center; gap: 16px; flex-wrap: wrap;
@@ -419,7 +425,7 @@
 
   .premium-modal {
     position: fixed; inset: 0; z-index: 100;
-    background: rgba(26, 22, 8, 0.55);
+    background: rgba(13, 27, 58, 0.6);
     display: none; align-items: center; justify-content: center;
     padding: 20px; opacity: 0; transition: opacity 0.25s ease;
   }
@@ -448,7 +454,7 @@
   }
 
   .premium-plan-info {
-    background: var(--yellow-pale); border: 1px solid var(--line);
+    background: var(--blue-pale); border: 1px solid var(--line);
     border-radius: 12px; padding: 16px;
     display: flex; flex-direction: column; gap: 4px;
   }
@@ -457,7 +463,7 @@
 
   .premium-plan-info .plan-price {
     font-size: 22px; font-weight: 900;
-    letter-spacing: -0.6px; color: var(--ink);
+    letter-spacing: -0.6px; color: var(--blue-deep);
   }
 
   .premium-plan-info .plan-meta {
@@ -471,7 +477,7 @@
   .premium-step-label {
     font-size: 12px; font-weight: 900;
     letter-spacing: 0.4px; text-transform: uppercase;
-    color: var(--ink); background: var(--yellow-pale);
+    color: var(--ink); background: var(--blue-pale);
     border: 1px solid var(--line);
     padding: 8px 12px; border-radius: 8px;
     display: flex; align-items: center; gap: 8px;
@@ -479,8 +485,8 @@
 
   .premium-step-label .step-num-badge {
     width: 20px; height: 20px;
-    border-radius: 50%; background: var(--yellow);
-    color: var(--ink); display: inline-flex;
+    border-radius: 50%; background: var(--blue);
+    color: #fff; display: inline-flex;
     align-items: center; justify-content: center;
     font-size: 11px; font-weight: 900; flex: none;
   }
@@ -497,23 +503,31 @@
 
   .add-btn {
     margin-top: 12px; width: 100%;
-    background: var(--yellow); color: var(--ink);
+    background: var(--blue); color: #fff;
     font-weight: 800; font-size: 13.5px;
     padding: 10px 12px; border-radius: 8px;
-    border: 1px solid var(--line); transition: 0.18s;
+    border: 1px solid var(--blue-deep); transition: 0.18s;
   }
-  .add-btn:hover { background: var(--yellow-soft); }
+  .add-btn:hover { background: var(--blue-deep); }
+
+  /* Tombol WA khusus untuk kartu Jasa Darurat */
+  .add-btn--wa {
+    background: #25d366;
+    border-color: #1ebe5b;
+    color: #fff;
+  }
+  .add-btn--wa:hover { background: #1ebe5b; }
 
   .cart-fab {
     position: fixed; right: 20px; bottom: 20px; z-index: 60;
-    background: var(--ink); color: var(--yellow);
+    background: var(--ink); color: var(--blue-soft);
     border-radius: 999px; padding: 14px 18px;
     font-weight: 800; display: flex; align-items: center; gap: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   }
 
   .cart-fab #cartCount {
-    background: var(--yellow); color: var(--ink);
+    background: var(--blue); color: #fff;
     border-radius: 999px; min-width: 22px; height: 22px;
     display: inline-flex; align-items: center; justify-content: center;
     font-size: 12px;
@@ -521,7 +535,7 @@
 
   .cart-overlay {
     position: fixed; inset: 0;
-    background: rgba(26, 22, 8, 0.45); z-index: 70;
+    background: rgba(13, 27, 58, 0.5); z-index: 70;
     opacity: 0; pointer-events: none; transition: 0.2s;
   }
   .cart-overlay.open { opacity: 1; pointer-events: auto; }
@@ -572,7 +586,7 @@
 
   .qty-btn {
     width: 28px; height: 28px; border-radius: 7px;
-    border: 1px solid var(--line); background: var(--yellow-pale);
+    border: 1px solid var(--line); background: var(--blue-pale);
     font-weight: 900;
   }
 
@@ -583,7 +597,7 @@
     border-top: 1px solid var(--line);
     padding: 16px 20px 20px;
     display: flex; flex-direction: column; gap: 10px;
-    background: var(--yellow-pale); flex: none;
+    background: var(--blue-pale); flex: none;
     max-height: 72vh; overflow: auto;
   }
 
@@ -644,7 +658,7 @@
     font-size: 12px; font-weight: 800; color: var(--ink-soft);
     transition: 0.15s;
   }
-  .pay-tab.active { background: var(--yellow); color: var(--ink); }
+  .pay-tab.active { background: var(--blue); color: #fff; }
 
   .pay-content {
     display: none;
@@ -663,7 +677,7 @@
 
   .account-box {
     display: flex; flex-direction: column; gap: 4px;
-    background: var(--yellow-pale); border: 1px solid var(--line);
+    background: var(--blue-pale); border: 1px solid var(--line);
     border-radius: 9px; padding: 12px 14px;
   }
 
@@ -677,7 +691,7 @@
 
   .copy-btn {
     align-self: flex-start; margin-top: 4px;
-    background: var(--ink); color: var(--yellow);
+    background: var(--ink); color: var(--blue-soft);
     padding: 6px 12px; border-radius: 6px;
     font-size: 11.5px; font-weight: 800;
   }
@@ -687,7 +701,7 @@
 
   .success-modal {
     position: fixed; inset: 0; z-index: 100;
-    background: rgba(26, 22, 8, 0.55);
+    background: rgba(13, 27, 58, 0.6);
     display: none; align-items: center; justify-content: center;
     padding: 20px; opacity: 0; transition: opacity 0.25s ease;
   }
@@ -730,8 +744,8 @@
 
   .closed-overlay {
     position: fixed; inset: 0; z-index: 9999;
-    background: linear-gradient(135deg, #1a1608 0%, #3a2f10 100%);
-    color: var(--yellow);
+    background: linear-gradient(135deg, #0d1b3a 0%, #163a7a 100%);
+    color: var(--blue-soft);
     display: none; align-items: center; justify-content: center;
     padding: 24px; text-align: center; overflow-y: auto;
   }
@@ -746,16 +760,16 @@
 
   .closed-mark {
     width: 72px; height: 72px; border-radius: 16px;
-    background: rgba(255, 200, 0, 0.12);
-    border: 2px solid rgba(255, 200, 0, 0.4);
+    background: rgba(30, 107, 255, 0.15);
+    border: 2px solid rgba(169, 198, 255, 0.4);
     display: inline-flex; align-items: center; justify-content: center;
-    font-size: 32px; font-weight: 900; color: var(--yellow);
+    font-size: 32px; font-weight: 900; color: var(--blue-soft);
     margin-bottom: 6px; position: relative;
   }
 
   .closed-mark::before {
     content: ""; position: absolute; inset: 8px;
-    border: 2px solid var(--yellow);
+    border: 2px solid var(--blue-soft);
     border-radius: 8px; opacity: 0.35;
   }
 
@@ -771,39 +785,39 @@
   .closed-title {
     font-size: clamp(28px, 6vw, 44px);
     font-weight: 900; letter-spacing: -1.2px;
-    line-height: 1.05; color: var(--yellow); margin: 4px 0;
+    line-height: 1.05; color: var(--blue-soft); margin: 4px 0;
   }
 
   .closed-desc {
-    font-size: 14px; color: rgba(255, 200, 0, 0.78);
+    font-size: 14px; color: rgba(169, 198, 255, 0.78);
     max-width: 380px; line-height: 1.55; margin-bottom: 6px;
   }
 
   .closed-hours {
     display: flex; align-items: center; gap: 10px;
-    background: rgba(255, 200, 0, 0.08);
-    border: 1px solid rgba(255, 200, 0, 0.28);
+    background: rgba(30, 107, 255, 0.12);
+    border: 1px solid rgba(169, 198, 255, 0.28);
     border-radius: 12px; padding: 12px 18px;
     font-size: 13px; font-weight: 700;
-    color: var(--yellow); margin-bottom: 6px;
+    color: var(--blue-soft); margin-bottom: 6px;
   }
 
   .closed-hours-label {
     font-size: 11px; font-weight: 800;
     letter-spacing: 0.6px; text-transform: uppercase;
-    color: rgba(255, 200, 0, 0.6); display: block; text-align: center;
+    color: rgba(169, 198, 255, 0.6); display: block; text-align: center;
   }
 
   .closed-hours-value {
     font-size: 17px; font-weight: 900;
-    letter-spacing: 0.4px; color: var(--yellow);
+    letter-spacing: 0.4px; color: var(--blue-soft);
     display: block; text-align: center;
   }
 
   .countdown-title {
     font-size: 11.5px; font-weight: 800;
     letter-spacing: 0.6px; text-transform: uppercase;
-    color: rgba(255, 200, 0, 0.55); margin-top: 12px;
+    color: rgba(169, 198, 255, 0.55); margin-top: 12px;
   }
 
   .countdown {
@@ -811,27 +825,27 @@
   }
 
   .countdown-cell {
-    background: rgba(255, 200, 0, 0.1);
-    border: 1px solid rgba(255, 200, 0, 0.3);
+    background: rgba(30, 107, 255, 0.12);
+    border: 1px solid rgba(169, 198, 255, 0.3);
     border-radius: 10px; padding: 10px 4px;
     min-width: 62px; text-align: center;
   }
 
   .countdown-num {
     font-size: 26px; font-weight: 900;
-    letter-spacing: -0.5px; color: var(--yellow);
+    letter-spacing: -0.5px; color: var(--blue-soft);
     line-height: 1; font-variant-numeric: tabular-nums;
   }
 
   .countdown-unit {
     font-size: 9.5px; font-weight: 800;
     letter-spacing: 0.8px; text-transform: uppercase;
-    color: rgba(255, 200, 0, 0.55); margin-top: 4px;
+    color: rgba(169, 198, 255, 0.55); margin-top: 4px;
   }
 
   .closed-footer {
     margin-top: 14px; font-size: 11px;
-    color: rgba(255, 200, 0, 0.4); letter-spacing: 0.2px;
+    color: rgba(169, 198, 255, 0.4); letter-spacing: 0.2px;
   }
 
   @media (max-width: 640px) {
@@ -936,11 +950,12 @@
   <div class="wrap hero-inner">
     <div class="hero-text">
       <span class="eyebrow">Jasa Digital Terjangkau</span>
-      <h1>Editing, Website, Template Guru — semua bisa di-Joki!</h1>
+      <h1>Website, Pengerjaan Tugas, Perbaikan File — semua bisa di-Joki!</h1>
       <p>
-        <strong>agcomstore - GitJoki</strong> melayani kebutuhan digital ringan untuk sekolah, mahasiswa,
-        guru, dan pelaku usaha. Harga mulai dari <strong>Rp5.000</strong>,
-        proses cepat, dan bisa langsung konsultasi ke admin.
+        <strong>agcomstore - GitJoki</strong> siap membantu kebutuhan digital Anda:
+        pembuatan website, pengerjaan tugas (modul, desain, presentasi, materi),
+        perbaikan file rusak, hingga jasa darurat digital.
+        Proses cepat, harga transparan, langsung konsultasi ke admin.
       </p>
       <div class="eco-slogan">
         <span class="eco-dot"></span>
@@ -956,14 +971,15 @@
     <div class="hero-side">
       <div class="hero-card">
         <span class="badge">Admin Online Sekarang</span>
-        <h3>Butuh joki tugas digital?</h3>
+        <h3>Butuh bantuan digital?</h3>
         <p>Pilih layanan, hubungi admin untuk kode pembayaran, lalu bayar via DANA / Seabank / ShopeePay.</p>
-        <div class="price-big">Rp5.000</div>
-        <p>Harga mulai dari — Print &amp; Scan / Convert File</p>
+        <div class="price-big">Rp259.000</div>
+        <p>Pembuatan Website — CV, Portofolio, UMKM, Store Online</p>
         <ul>
-          <li>Editing Canva, gambar, dan video</li>
-          <li>Build website, landing page, portofolio</li>
-          <li>Template guru, PPT, modul pembelajaran</li>
+          <li>Pembuatan website profesional</li>
+          <li>Pengerjaan tugas: modul, desain, presentasi, materi</li>
+          <li>Perbaikan file rusak</li>
+          <li>Jasa darurat digital — hubungi admin</li>
           <li>Admin: 0857-3156-9186</li>
         </ul>
         <div class="eco-mini">
@@ -978,26 +994,26 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Layanan Utama agcomstore - GitJoki</h2>
-      <p>Beberapa kategori layanan yang paling sering dipesan. Semua bisa dikonsultasikan dulu ke admin sebelum order.</p>
+      <p>Beberapa kategori layanan yang bisa Anda pesan. Semua bisa dikonsultasikan dulu ke admin sebelum order.</p>
     </div>
     <div class="grid-3">
       <div class="box">
-        <span class="badge">Editing &amp; Desain</span>
-        <h3>Editing Canva, Gambar &amp; Video</h3>
-        <p>Tugas sekolah, iklan, poster, video reels, dan konten YouTube.</p>
-        <div class="price">Mulai Rp15.000</div>
+        <span class="badge">Website</span>
+        <h3>Pembuatan Website</h3>
+        <p>CV untuk kerja, Portofolio untuk kerja, kebutuhan UMKM, Store Online.</p>
+        <div class="price">IDR 259.000</div>
       </div>
       <div class="box">
-        <span class="badge">Website &amp; Template</span>
-        <h3>Build Website &amp; Template Guru</h3>
-        <p>Website simple, landing page, portofolio, materi ajar, PPT, dan modul pembelajaran.</p>
-        <div class="price">Mulai Rp20.000</div>
+        <span class="badge">Pengerjaan</span>
+        <h3>Pengerjaan Kerja Anda</h3>
+        <p>Modul, Desain, Presentasi, Materi — kami bisa bantu joki pekerjaan Anda. Siap kirim.</p>
+        <div class="price">IDR 25.000</div>
       </div>
       <div class="box">
-        <span class="badge">Administrasi</span>
-        <h3>Ketik, Print, Scan &amp; Convert File</h3>
-        <p>Ketik ulang dari foto/gambar, print dokumen, scan berkas, dan convert Word/PDF/Excel/PPT.</p>
-        <div class="price">Mulai Rp5.000</div>
+        <span class="badge">Perbaikan</span>
+        <h3>Perbaikan File Rusak</h3>
+        <p>Perbaikan file rusak apapun itu — kami bantu pulihkan.</p>
+        <div class="price">IDR 20.000</div>
       </div>
     </div>
   </div>
@@ -1012,73 +1028,38 @@
 
     <div class="services-grid">
       <div class="box">
-        <span class="badge">Canva</span>
-        <h3>Jasa Editing Canva</h3>
-        <p>Tugas sekolah, iklan, poster, dll.</p>
-        <div class="price" data-base-price="15000">Rp15.000</div>
-      </div>
-
-      <div class="box">
-        <span class="badge">Multimedia</span>
-        <h3>Editing Gambar / Video</h3>
-        <p>Editing foto, video reels, YouTube.</p>
-        <div class="price" data-base-price="25000">Rp25.000</div>
-      </div>
-
-      <div class="box">
-        <span class="badge">Presentasi</span>
-        <h3>Jasa Presentasi PPT</h3>
-        <p>PPT rapi &amp; menarik untuk tugas.</p>
-        <div class="price" data-base-price="30000">Rp30.000</div>
-      </div>
-
-      <div class="box">
         <span class="badge">Website</span>
-        <h3>Jasa Build Website</h3>
-        <p>Website simple, landing page, portofolio.</p>
-        <div class="price" data-base-price="150000">Rp150.000</div>
+        <h3>Pembuatan Website</h3>
+        <p>CV kerja, Portofolio kerja, UMKM, Store Online.</p>
+        <div class="price" data-base-price="259000">IDR 259.000</div>
       </div>
 
       <div class="box">
-        <span class="badge">Guru</span>
-        <h3>Template Guru</h3>
-        <p>Materi ajar, PPT, modul pembelajaran.</p>
-        <div class="price" data-base-price="20000">Rp20.000</div>
+        <span class="badge">Pengerjaan</span>
+        <h3>Pengerjaan Kerja Anda</h3>
+        <p>Modul, Desain, Presentasi, Materi — siap kirim.</p>
+        <div class="price" data-base-price="25000">IDR 25.000</div>
       </div>
 
       <div class="box">
-        <span class="badge">Dokumen</span>
-        <h3>Jasa Ketik Ulang</h3>
-        <p>Ketik dari foto/gambar ke Word / PDF.</p>
-        <div class="price" data-base-price="10000">Rp10.000</div>
+        <span class="badge">Perbaikan</span>
+        <h3>Perbaikan File Rusak</h3>
+        <p>Perbaikan file rusak apapun itu.</p>
+        <div class="price" data-base-price="20000">IDR 20.000</div>
       </div>
 
-      <div class="box">
-        <span class="badge">Print</span>
-        <h3>Jasa Print &amp; Scan</h3>
-        <p>Print dokumen, scan berkas penting.</p>
-        <div class="price" data-base-price="5000">Rp5.000</div>
-      </div>
-
-      <div class="box">
-        <span class="badge">Akun</span>
-        <h3>Jasa Daftar Akun</h3>
-        <p>Bikin akun sosmed, email, dll.</p>
-        <div class="price" data-base-price="15000">Rp15.000</div>
-      </div>
-
-      <div class="box">
-        <span class="badge">CV</span>
-        <h3>Jasa Edit CV / Resume</h3>
-        <p>CV menarik siap kirim ke HRD.</p>
-        <div class="price" data-base-price="20000">Rp20.000</div>
-      </div>
-
-      <div class="box">
-        <span class="badge">Convert</span>
-        <h3>Jasa Convert File</h3>
-        <p>Word ↔ PDF, Excel, PPT, dll.</p>
-        <div class="price" data-base-price="5000">Rp5.000</div>
+      <!-- Jasa Darurat: tanpa keranjang, langsung WhatsApp -->
+      <div class="box service-card--wa">
+        <span class="badge">Darurat</span>
+        <h3>Jasa Darurat Digital</h3>
+        <p>Kami ada semua — hubungi admin untuk kebutuhan mendesak.</p>
+        <div class="price">Hubungi Admin</div>
+        <a
+          href="https://wa.me/6285731569186?text=Halo%20Admin%20agcomstore%20-%20GitJoki%2C%20saya%20butuh%20Jasa%20Darurat%20Digital.%20Mohon%20dibantu.%20Terima%20kasih."
+          target="_blank"
+          rel="noopener"
+          class="add-btn add-btn--wa"
+        >Hubungi Admin via WA</a>
       </div>
     </div>
   </div>
@@ -1169,7 +1150,7 @@
 <section class="cta" id="section-4">
   <div class="wrap cta-inner">
     <div>
-      <h2>Butuh joki tugas digital hari ini?</h2>
+      <h2>Butuh jasa digital hari ini?</h2>
       <p>Chat admin sekarang. Admin: <strong>0857-3156-9186</strong>. Semua karya dibuat manual, tanpa AI.</p>
     </div>
     <div class="cta-actions">
@@ -1190,8 +1171,8 @@
           </span>
         </div>
         <p class="foot-desc">
-          agcomstore - GitJoki melayani editing, website, template guru, administrasi dokumen, dan kebutuhan digital ringan
-          dengan harga terjangkau.
+          agcomstore - GitJoki melayani pembuatan website, pengerjaan tugas, perbaikan file rusak,
+          dan jasa darurat digital dengan harga terjangkau.
         </p>
         <div class="foot-eco">
           <span class="eco-dot"></span>
@@ -1201,11 +1182,10 @@
       <div>
         <h4>Layanan</h4>
         <ul class="foot-list">
-          <li><a href="#section-2">Editing Canva</a></li>
-          <li><a href="#section-2">Editing Gambar / Video</a></li>
-          <li><a href="#section-2">Presentasi PPT</a></li>
-          <li><a href="#section-2">Build Website</a></li>
-          <li><a href="#section-2">Template Guru</a></li>
+          <li><a href="#section-2">Pembuatan Website</a></li>
+          <li><a href="#section-2">Pengerjaan Kerja Anda</a></li>
+          <li><a href="#section-2">Perbaikan File Rusak</a></li>
+          <li><a href="#section-2">Jasa Darurat Digital</a></li>
         </ul>
       </div>
       <div>
@@ -1228,7 +1208,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 agcomstore - GitJoki. Semua hak dilindungi.</span>
-      <span>Editing, Website, Template Guru — semua bisa di-Joki! <a href="#" id="checkUsedCodesBtn">Cek Kode Terpakai</a></span>
+      <span>Website, Pengerjaan Tugas, Perbaikan File — semua bisa di-Joki! <a href="#" id="checkUsedCodesBtn">Cek Kode Terpakai</a></span>
     </div>
   </div>
 </footer>
@@ -1558,7 +1538,7 @@ document.addEventListener('DOMContentLoaded', function () {
         navMenu.style.right = '0';
         navMenu.style.background = '#ffffff';
         navMenu.style.padding = '20px 24px';
-        navMenu.style.borderBottom = '1px solid #e6d58a';
+        navMenu.style.borderBottom = '1px solid #b9cdf5';
         navMenu.style.gap = '16px';
         navMenu.style.zIndex = '49';
       }
@@ -1788,7 +1768,6 @@ document.addEventListener('DOMContentLoaded', function () {
       var p = parseInt(attr, 10);
       if (!isNaN(p) && p > 0) return p;
     }
-    /* Fallback: parse dari textContent */
     var parsed = parseInt(String(priceEl.textContent).replace(/[^\d]/g, ''), 10);
     if (!isNaN(parsed) && parsed > 0) {
       priceEl.setAttribute('data-base-price', parsed);
@@ -2236,8 +2215,11 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ========== TOMBOL KERANJANG DI KARTU LAYANAN ========== */
   function initAddToCartButtons() {
     document.querySelectorAll('#section-2 .services-grid .box').forEach(function (box) {
-      /* Cegah dobel tombol */
+      /* Skip kartu yang sudah punya tombol (termasuk kartu Jasa Darurat yang pakai WA) */
       if (box.querySelector('.add-btn')) return;
+
+      /* Skip kartu Jasa Darurat (tanpa data-base-price valid) */
+      if (box.classList.contains('service-card--wa')) return;
 
       var nameEl = box.querySelector('h3');
       var priceEl = box.querySelector('.price');
@@ -2398,15 +2380,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ========== INIT — URUTAN PENTING ========== */
-  /* 1. Simpan data-base-price ke setiap .price (fallback dari HTML sudah ada juga) */
   document.querySelectorAll('#section-2 .services-grid .box .price').forEach(function (priceEl) {
     getServiceBasePrice(priceEl);
   });
 
-  /* 2. Buat tombol + Keranjang SEBELUM premium di-render */
   initAddToCartButtons();
-
-  /* 3. Load state premium & cart */
   loadPremium();
   loadCart();
   updatePremiumUI();
@@ -2415,7 +2393,7 @@ document.addEventListener('DOMContentLoaded', function () {
   hideScanStep();
   updateUsedCodesIndicator();
 
-  console.log('[GitJoki] Init selesai. Tombol keranjang:', document.querySelectorAll('.add-btn').length);
+  console.log('[GitJoki] Init selesai. Tombol keranjang:', document.querySelectorAll('.add-btn:not(.add-btn--wa)').length);
 
 });
 </script>
